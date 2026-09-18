@@ -40,4 +40,29 @@ def test_the_made_flag_alone_does_not_solve_it():
         return "made_fg" if trace["shot_events"][-1]["made"] else "missed_fg_dreb"
 
     accuracy = sum(naive(trace) == truth["outcome"] for trace, truth in pairs) / len(pairs)
-    assert 0.5 < accuracy < 0.8
+    assert 0.6 < accuracy < 0.9
+
+
+def test_a_possession_never_inherits_the_previous_possessions_shot():
+    """Regression: the shot that ENDS a possession resolves on the tick the next
+    one starts. It must not show up as the next possession's first shot event
+    (it did, and it capped every score at about 0.78 even with perfect sensors)."""
+    pairs = sp.sample(200, seed=11, shot_detect_p=1.0, made_flag_p=1.0)
+    for trace, _ in pairs:
+        for shot in trace["shot_events"]:
+            assert trace["start_s"] < shot["ts_s"] <= trace["end_s"]
+
+
+def test_perfect_sensors_make_the_rule_nearly_perfect():
+    """With every shot detected and every flag right, what is left is the case a
+    rule cannot see: a miss, an offensive rebound, then a turnover."""
+    pairs = sp.sample(300, seed=11, shot_detect_p=1.0, made_flag_p=1.0)
+
+    def naive(trace):
+        if not trace["shot_events"]:
+            return "turnover"
+        return "made_fg" if trace["shot_events"][-1]["made"] else "missed_fg_dreb"
+
+    wrong = [truth["outcome"] for trace, truth in pairs if naive(trace) != truth["outcome"]]
+    assert len(wrong) / len(pairs) < 0.07
+    assert set(wrong) <= {"turnover"}

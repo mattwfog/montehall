@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 452" width="720" height="452" role="img" aria-label="Reported confidence against observed accuracy">
+<rect width="720" height="452" fill="#1a1a19"/>
+<text x="24.0" y="34.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="start">Reported confidence against observed accuracy</text>
+<text x="24.0" y="54.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#c3c2b7" text-anchor="start">300 simulated possessions, seed 11; map fitted on seed 7; marker area = number of verdicts in the bin</text>
+<line x1="72" x2="492" y1="396.0" y2="396.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="400.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">0%</text>
+<line x1="72" x2="492" y1="321.0" y2="321.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="325.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">25%</text>
+<line x1="72" x2="492" y1="246.0" y2="246.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="250.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">50%</text>
+<line x1="72" x2="492" y1="171.0" y2="171.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="175.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">75%</text>
+<line x1="72" x2="492" y1="96.0" y2="96.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="100.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">100%</text>
+<text x="72.0" y="414.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">0.00</text>
+<text x="177.0" y="414.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">0.25</text>
+<text x="282.0" y="414.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">0.50</text>
+<text x="387.0" y="414.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">0.75</text>
+<text x="492.0" y="414.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">1.00</text>
+<line x1="72" x2="492" y1="396" y2="396" stroke="#383835" stroke-width="1"/>
+<text x="282.0" y="434.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#c3c2b7" text-anchor="middle">confidence the adjudicator reported</text>
+<text x="28" y="246.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#c3c2b7" text-anchor="middle" transform="rotate(-90 28 246.0)">share of those verdicts that were right</text>
+<line x1="72.0" y1="396.0" x2="492.0" y2="96.0" stroke="#898781" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="88.8" y="370.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="start">perfectly calibrated</text>
+<path d="M319.8,396.0 L341.9,396.0 L387.8,276.0 L434.1,157.5 L477.5,129.8" fill="none" stroke="#3987e5" stroke-width="2" stroke-opacity="0.45" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="319.8" cy="396.0" r="3.7" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="341.9" cy="396.0" r="4.4" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="387.8" cy="276.0" r="4.6" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="434.1" cy="157.5" r="7.3" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="477.5" cy="129.8" r="11.0" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<path d="M165.3,336.0 L352.0,144.0 L387.0,196.0 L440.3,167.8 L479.5,100.1" fill="none" stroke="#d95926" stroke-width="2" stroke-opacity="0.45" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="165.3" cy="336.0" r="6.0" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="352.0" cy="144.0" r="7.7" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="387.0" cy="196.0" r="4.6" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="440.3" cy="167.8" r="10.9" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="479.5" cy="100.1" r="11.0" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<rect x="72" y="75" width="14" height="4" rx="2" fill="#3987e5"/>
+<text x="92.0" y="81.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#c3c2b7" text-anchor="start">as reported (ECE 0.10)</text>
+<rect x="256" y="75" width="14" height="4" rx="2" fill="#d95926"/>
+<text x="276.0" y="81.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#c3c2b7" text-anchor="start">recalibrated on another seed (ECE 0.08)</text>
+</svg>

@@ -77,8 +77,16 @@ def _shots(game: _RecordingGame) -> list[dict]:
     return sorted(shots, key=lambda s: s["t_ms"])
 
 
-def possessions_from_game(key: str, seed: int, duration_s: float) -> list[tuple[dict, dict]]:
-    """[(trace, truth)] for every possession of one sim game that ended in play."""
+def possessions_from_game(
+    key: str,
+    seed: int,
+    duration_s: float,
+    shot_detect_p: float = SHOT_DETECT_P,
+    made_flag_p: float = MADE_FLAG_P,
+) -> list[tuple[dict, dict]]:
+    """[(trace, truth)] for every possession of one sim game that ended in play.
+    The game, and so the truth, depends only on the seed; the two sensor rates
+    change only what the trace shows of it."""
     game = _RecordingGame(key, random.Random(seed), duration_s)
     game.run()
     noise = random.Random(seed ^ 0x5EED)  # observation noise, independent of the game
@@ -112,12 +120,16 @@ def possessions_from_game(key: str, seed: int, duration_s: float) -> list[tuple[
         if (t1 - t0) / 1000 < MIN_POSSESSION_S:
             continue
         offense = prev["possession"]
-        trace = _observed_trace(len(out), offense, segment, t0, t1, shots, noise)
+        trace = _observed_trace(
+            len(out), offense, segment, t0, t1, shots, noise, shot_detect_p, made_flag_p
+        )
         out.append((trace, {"outcome": outcome, "scorer_entity": scorer}))
     return out
 
 
-def _observed_trace(pid, offense, segment, t0, t1, shots, noise) -> dict:
+def _observed_trace(
+    pid, offense, segment, t0, t1, shots, noise, shot_detect_p, made_flag_p
+) -> dict:
     controls = [
         {
             "ts_ms": tick["t_ms"],
@@ -131,9 +143,11 @@ def _observed_trace(pid, offense, segment, t0, t1, shots, noise) -> dict:
     ]
     shot_events = []
     for shot in shots:
-        if not (t0 <= shot["t_ms"] <= t1) or noise.random() > SHOT_DETECT_P:
+        # t0 is the tick the PREVIOUS possession ended on; a shot resolved then
+        # belongs to that possession, so the window is open at t0.
+        if not (t0 < shot["t_ms"] <= t1) or noise.random() > shot_detect_p:
             continue
-        right = noise.random() < MADE_FLAG_P
+        right = noise.random() < made_flag_p
         shot_events.append(
             {
                 "ts_s": round(shot["t_ms"] / 1000, 1),
@@ -166,13 +180,22 @@ def _observed_trace(pid, offense, segment, t0, t1, shots, noise) -> dict:
     }
 
 
-def sample(n: int, seed: int, game_s: float = 1200.0) -> list[tuple[dict, dict]]:
+def sample(
+    n: int,
+    seed: int,
+    game_s: float = 1200.0,
+    shot_detect_p: float = SHOT_DETECT_P,
+    made_flag_p: float = MADE_FLAG_P,
+) -> list[tuple[dict, dict]]:
     """n possessions drawn from as many seeded sim games as it takes. Possession
     ids are renumbered to be unique across games."""
     out: list[tuple[dict, dict]] = []
     game_idx = 0
     while len(out) < n:
-        for trace, truth in possessions_from_game(f"sim_{seed}_{game_idx}", seed + game_idx, game_s):
+        games = possessions_from_game(
+            f"sim_{seed}_{game_idx}", seed + game_idx, game_s, shot_detect_p, made_flag_p
+        )
+        for trace, truth in games:
             trace["possession_id"] = len(out)
             out.append((trace, truth))
             if len(out) == n:

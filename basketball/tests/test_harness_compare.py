@@ -38,3 +38,19 @@ def test_compare_scores_each_backend_and_counts_abstentions(tmp_path, monkeypatc
     assert (careful["answered"], careful["abstained"]) == (2, 1)
     assert careful["accuracy"] == 1.0
     assert careful["ece"] < sure["ece"]
+
+
+def test_reference_is_scored_on_the_backends_own_answered_and_abstained_sets(tmp_path, monkeypatch):
+    traces = [{"possession_id": i} for i in (1, 2, 3)]
+    truth = {1: "made_fg", 2: "turnover", 3: "made_fg"}
+    careful = _Fixed("careful", {
+        1: {"outcome": "made_fg", "confidence": 0.9, "outcome_probabilities": {"made_fg": 0.9, "unclear": 0.1}},
+        2: {"outcome": "unclear", "confidence": 0.6,
+            "outcome_probabilities": {"unclear": 0.6, "turnover": 0.3, "made_fg": 0.1}},
+        3: {"outcome": "made_fg", "confidence": 0.8, "outcome_probabilities": {"made_fg": 0.8, "unclear": 0.2}},
+    })
+    report = cmp.compare_traces(traces, truth, [careful], tmp_path, reference=lambda trace: "made_fg")
+    entry = report["backends"]["careful"]
+    assert entry["reference_on_answered"] == 1.0  # the rule is right on 1 and 3
+    assert entry["reference_on_abstained"] == 0.0  # and wrong on the one the backend skipped
+    assert entry["forced_accuracy"] == 1.0  # best non-unclear guess: made, turnover, made

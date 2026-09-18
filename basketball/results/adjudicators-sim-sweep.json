@@ -1,0 +1,79 @@
+{
+  "backend": "jev",
+  "possessions": 300,
+  "seed": 11,
+  "cells": [
+    {
+      "shot_detect_p": 0.82,
+      "made_flag_p": 0.8,
+      "naive_rule_accuracy": 0.76,
+      "accuracy": 0.7637362637362637,
+      "coverage": 0.6066666666666667,
+      "mean_confidence": 0.9265384615384615,
+      "ece": 0.16280219780219787
+    },
+    {
+      "shot_detect_p": 0.82,
+      "made_flag_p": 0.875,
+      "naive_rule_accuracy": 0.8,
+      "accuracy": 0.8296703296703297,
+      "coverage": 0.6066666666666667,
+      "mean_confidence": 0.9282417582417583,
+      "ece": 0.09857142857142863
+    },
+    {
+      "shot_detect_p": 0.82,
+      "made_flag_p": 0.95,
+      "naive_rule_accuracy": 0.8433333333333334,
+      "accuracy": 0.9010989010989011,
+      "coverage": 0.6066666666666667,
+      "mean_confidence": 0.9284615384615386,
+      "ece": 0.03318681318681318
+    },
+    {
+      "shot_detect_p": 0.82,
+      "made_flag_p": 1.0,
+      "naive_rule_accuracy": 0.87,
+      "accuracy": 0.9398907103825137,
+      "coverage": 0.61,
+      "mean_confidence": 0.9285245901639345,
+      "ece": 0.0683060109289617
+    },
+    {
+      "shot_detect_p": 1.0,
+      "made_flag_p": 0.8,
+      "naive_rule_accuracy": 0.83,
+      "accuracy": 0.7594339622641509,
+      "coverage": 0.7066666666666667,
+      "mean_confidence": 0.9256132075471698,
+      "ece": 0.16617924528301886
+    },
+    {
+      "shot_detect_p": 1.0,
+      "made_flag_p": 0.875,
+      "naive_rule_accuracy": 0.89,
+      "accuracy": 0.8443396226415094,
+      "coverage": 0.7066666666666667,
+      "mean_confidence": 0.9262735849056604,
+      "ece": 0.08193396226415094
+    },
+    {
+      "shot_detect_p": 1.0,
+      "made_flag_p": 0.95,
+      "naive_rule_accuracy": 0.93,
+      "accuracy": 0.9014084507042254,
+      "coverage": 0.71,
+      "mean_confidence": 0.9287793427230048,
+      "ece": 0.049436619718309746
+    },
+    {
+      "shot_detect_p": 1.0,
+      "made_flag_p": 1.0,
+      "naive_rule_accuracy": 0.96,
+      "accuracy": 0.9436619718309859,
+      "coverage": 0.71,
+      "mean_confidence": 0.928169014084507,
+      "ece": 0.06619718309859143
+    }
+  ]
+}

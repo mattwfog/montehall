@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 448" width="760" height="448" role="img" aria-label="Outcome accuracy climbs with sensor quality, for the model and the rule alike">
+<rect width="760" height="448" fill="#1a1a19"/>
+<text x="24.0" y="34.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="start">Outcome accuracy climbs with sensor quality, for the model and the rule alike</text>
+<text x="24.0" y="54.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#c3c2b7" text-anchor="start">300 simulated possessions per point, seed 11; same games, only the sensors change</text>
+<line x1="72" x2="322" y1="392.0" y2="392.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="396.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">50%</text>
+<line x1="72" x2="322" y1="336.0" y2="336.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="340.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">60%</text>
+<line x1="72" x2="322" y1="280.0" y2="280.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="284.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">70%</text>
+<line x1="72" x2="322" y1="224.0" y2="224.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="228.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">80%</text>
+<line x1="72" x2="322" y1="168.0" y2="168.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="172.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">90%</text>
+<line x1="72" x2="322" y1="112.0" y2="112.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="64.0" y="116.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">100%</text>
+<text x="92.8" y="410.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">80%</text>
+<text x="171.0" y="410.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">87.5%</text>
+<text x="249.1" y="410.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">95%</text>
+<text x="301.2" y="410.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">100%</text>
+<line x1="72" x2="322" y1="392" y2="392" stroke="#383835" stroke-width="1"/>
+<text x="197.0" y="430.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#c3c2b7" text-anchor="middle">made flag is right</text>
+<text x="28" y="252.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" fill="#c3c2b7" text-anchor="middle" transform="rotate(-90 28 252.0)">outcome accuracy</text>
+<text x="72.0" y="100.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="start">shots detected 82% of the time</text>
+<path d="M92.8,246.4 L171.0,224.0 L249.1,199.7 L301.2,184.8" fill="none" stroke="#d95926" stroke-width="2" stroke-opacity="1" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="92.8" cy="246.4" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="171.0" cy="224.0" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="249.1" cy="199.7" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="301.2" cy="184.8" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<path d="M92.8,244.3 L171.0,207.4 L249.1,167.4 L301.2,145.7" fill="none" stroke="#3987e5" stroke-width="2" stroke-opacity="1" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="92.8" cy="244.3" r="4.5" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="171.0" cy="207.4" r="4.5" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="249.1" cy="167.4" r="4.5" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="301.2" cy="145.7" r="4.5" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<line x1="402" x2="652" y1="392.0" y2="392.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="394.0" y="396.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">50%</text>
+<line x1="402" x2="652" y1="336.0" y2="336.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="394.0" y="340.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">60%</text>
+<line x1="402" x2="652" y1="280.0" y2="280.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="394.0" y="284.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">70%</text>
+<line x1="402" x2="652" y1="224.0" y2="224.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="394.0" y="228.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">80%</text>
+<line x1="402" x2="652" y1="168.0" y2="168.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="394.0" y="172.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">90%</text>
+<line x1="402" x2="652" y1="112.0" y2="112.0" stroke="#2c2c2a" stroke-width="1"/>
+<text x="394.0" y="116.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="end">100%</text>
+<text x="422.8" y="410.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">80%</text>
+<text x="501.0" y="410.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">87.5%</text>
+<text x="579.1" y="410.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">95%</text>
+<text x="631.2" y="410.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" fill="#898781" text-anchor="middle">100%</text>
+<line x1="402" x2="652" y1="392" y2="392" stroke="#383835" stroke-width="1"/>
+<text x="527.0" y="430.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#c3c2b7" text-anchor="middle">made flag is right</text>
+<text x="402.0" y="100.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="start">shots detected 100% of the time</text>
+<path d="M422.8,207.2 L501.0,173.6 L579.1,151.2 L631.2,134.4" fill="none" stroke="#d95926" stroke-width="2" stroke-opacity="1" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="422.8" cy="207.2" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="501.0" cy="173.6" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="579.1" cy="151.2" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="631.2" cy="134.4" r="4.5" fill="#d95926" stroke="#1a1a19" stroke-width="2"/>
+<path d="M422.8,246.7 L501.0,199.2 L579.1,167.2 L631.2,143.5" fill="none" stroke="#3987e5" stroke-width="2" stroke-opacity="1" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="422.8" cy="246.7" r="4.5" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="501.0" cy="199.2" r="4.5" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="579.1" cy="167.2" r="4.5" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<circle cx="631.2" cy="143.5" r="4.5" fill="#3987e5" stroke="#1a1a19" stroke-width="2"/>
+<rect x="72" y="75" width="14" height="4" rx="2" fill="#3987e5"/>
+<text x="92.0" y="81.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#c3c2b7" text-anchor="start">jev, on the possessions it answers</text>
+<rect x="340" y="75" width="14" height="4" rx="2" fill="#d95926"/>
+<text x="360.0" y="81.0" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif" font-size="12" font-weight="400" fill="#c3c2b7" text-anchor="start">no model: trust the last shot flag, on all possessions</text>
+</svg>

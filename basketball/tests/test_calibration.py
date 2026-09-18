@@ -40,3 +40,21 @@ def test_summarize_reports_every_metric():
 def test_bad_input_is_refused(confidence, correct):
     with pytest.raises(ValueError):
         cal.summarize(confidence, correct)
+
+
+def test_isotonic_map_is_monotone_and_fixes_overconfidence():
+    confidence = [0.95] * 10 + [0.6] * 10
+    correct = [True] * 6 + [False] * 4 + [True] * 3 + [False] * 7
+    steps = cal.fit_isotonic(confidence, correct)
+    values = [value for _, value in steps]
+    assert values == sorted(values)
+    calibrated = cal.apply_isotonic(steps, confidence)
+    assert cal.expected_calibration_error(calibrated, correct) == pytest.approx(0.0)
+    assert cal.expected_calibration_error(confidence, correct) > 0.3
+
+
+def test_isotonic_pools_a_violation():
+    # accuracy falls as confidence rises: the two groups must pool to one value
+    steps = cal.fit_isotonic([0.6, 0.6, 0.9, 0.9], [True, True, False, False])
+    assert [round(value, 3) for _, value in steps] == [0.5]
+    assert cal.apply_isotonic(steps, [0.1, 0.99]) == [0.5, 0.5]

@@ -95,3 +95,27 @@ def summarize(confidence: Sequence[float], correct: Sequence[bool], n_bins: int 
         "reliability": reliability_bins(confidence, correct, n_bins),
         "precision_at_coverage": precision_at_coverage(confidence, correct),
     }
+
+
+def fit_isotonic(confidence: Sequence[float], correct: Sequence[bool]) -> list[tuple[float, float]]:
+    """Monotone map from reported confidence to observed accuracy (pool adjacent
+    violators). Returns (confidence upper edge, calibrated value) steps; fit it
+    on one set of verdicts and apply it to another."""
+    conf, hit = _arrays(confidence, correct)
+    order = np.argsort(conf, kind="stable")
+    blocks = [[float(conf[i]), float(hit[i]), 1.0] for i in order]  # [max conf, mean hit, weight]
+    merged: list[list[float]] = []
+    for block in blocks:
+        merged.append(block)
+        while len(merged) > 1 and merged[-2][1] > merged[-1][1]:
+            hi, lo = merged.pop(), merged.pop()
+            weight = hi[2] + lo[2]
+            merged.append([hi[0], (hi[1] * hi[2] + lo[1] * lo[2]) / weight, weight])
+    return [(edge, value) for edge, value, _ in merged]
+
+
+def apply_isotonic(steps: list[tuple[float, float]], confidence: Sequence[float]) -> list[float]:
+    edges = np.array([edge for edge, _ in steps])
+    values = [value for _, value in steps]
+    index = np.minimum(np.searchsorted(edges, np.asarray(confidence, dtype=float), side="left"), len(values) - 1)
+    return [values[i] for i in index]

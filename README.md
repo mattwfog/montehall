@@ -11,6 +11,32 @@ claim has to cite a measured result.
 The argument, with measurements, is in
 [Trustworthy Player Statistics from Game Video via Closed-World State Estimation](basketball/docs/cv-state-estimation-paper.md).
 
+```mermaid
+flowchart LR
+    V[game video] --> P
+    subgraph P[perception channels]
+        direction TB
+        D[detector + tracker]
+        B[ball tracker]
+        O[jersey OCR]
+        C[court / pitch calibration]
+        K[clock + score bug]
+        A[announcer audio]
+    end
+    P -->|observations, never verdicts| S
+    X[external anchors<br/>play-by-play, rosters, scoreboard, coach confirmations] --> S
+    subgraph S[state stores]
+        direction TB
+        S1[ball trajectory]
+        S2[person registry<br/>identity bound late]
+        S3[game state<br/>possession, period, direction]
+    end
+    S --> M[estimators and adjudicators<br/>abstention allowed]
+    M --> R[box score, tactical findings]
+    X -.->|truth no model produced| E[one scorer, one scorecard]
+    R --> E
+```
+
 The repository holds two independent Python projects that apply that idea to two
 sports.
 
@@ -78,23 +104,59 @@ control only on ticks the ball was observed, tracker id swaps included, shots de
 from the paper). 300 possessions, seed 11, `jev-1.13.0`, 2026-09-18
 ([`results/adjudicators-sim.json`](basketball/results/adjudicators-sim.json)):
 
-| adjudicator | coverage | outcome accuracy | mean confidence | ECE | scorer precision / coverage |
-|---|---|---|---|---|---|
-| no model: trust the last shot flag | 1.00 | 0.663 | n/a | n/a | 0.71 / 0.73 |
-| jev | 0.79 | 0.646 | 0.905 | 0.260 | 0.70 / 0.71 |
-| jev, told the sensors' error rates | 0.79 | 0.646 | 0.872 | 0.227 | 0.71 / 0.70 |
+| adjudicator | answers | accuracy on what it answers | accuracy forced to answer all | ECE |
+|---|---|---|---|---|
+| no model: trust the last shot flag | 100% | 0.800 | 0.800 | n/a |
+| jev | 61% | 0.830 | 0.800 | 0.099 |
+| jev, told the sensors' error rates | 61% | 0.830 | 0.780 | 0.080 |
 
-The result is negative and it replicated on a second seed. The model does not beat a
-one-line rule, and it is overconfident: verdicts it reports at 0.97 are right 67% of the
-time, so raising the threshold buys little precision (0.65 at full coverage, 0.70 at
-half). It reads the made flag as fact. Putting the measured error rates in its state
-moved calibration only slightly. The information limit here is in the sensors, not the
-adjudicator, which is the thesis's own argument: a better shot channel or an external
-anchor will move this number and a smarter reader of the same evidence will not. The
-model's raw confidence should not drive abstention without recalibration against truth.
-Limits: simulated possessions and stated noise, not real footage; the generative
-backend has not been scored on this set (`python -m montehall_cv.harness.sim_eval
---backends generative jev` runs it).
+What the numbers say:
+
+- **The model's outcome judgment is the rule's.** Forced to answer everything, jev
+  scores 0.800, exactly the rule. On the 182 possessions jev chose to answer, the rule
+  also scores 0.830. Seed 7 repeats it (0.793 against 0.797).
+- **What the model adds is knowing when it does not know.** It abstains on 39% of
+  possessions, and those are the hard ones: the rule gets only 0.75 of them right
+  (0.70 on seed 7) against 0.83 to 0.86 on the rest. Within what it answers, its
+  confidence ranks verdicts: precision is 0.83 at full coverage, 0.89 on its most
+  confident three quarters, 1.00 on its most confident 30%. That is the abstention
+  signal the identity design needs and a rule cannot give.
+- **Its confidence runs high by about ten points** (mean 0.93 against 0.83 observed).
+  A monotone map fitted on another seed trims calibration error from 0.10 to 0.08
+  ([`adjudicators-sim-recalibration.json`](basketball/results/adjudicators-sim-recalibration.json)).
+  Scorer attribution is no better than naming the last ball handler (precision 0.60
+  against 0.62).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="basketball/docs/figures/adjudicator-reliability-dark.svg">
+  <img alt="Reliability diagram: jev's reported confidence against observed accuracy, before and after recalibration on a held-out seed" src="basketball/docs/figures/adjudicator-reliability-light.svg" width="640">
+</picture>
+
+Changing only the sensors, on the same games
+([`adjudicators-sim-sweep.json`](basketball/results/adjudicators-sim-sweep.json)), moves
+both adjudicators far more than swapping one for the other does: as the made flag
+goes from 80% to 100% right, the rule climbs from 0.76 to 0.87 and jev from 0.76 to
+0.94 on what it answers. With every shot detected the rule reaches 0.96; what is left
+is the one case a rule cannot see, a miss, an offensive rebound, then a turnover. This
+is the thesis's argument, measured: a better shot channel or an external anchor moves
+the number; a smarter reader of the same evidence mostly decides which possessions to
+leave alone.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="basketball/docs/figures/adjudicator-sensor-sweep-dark.svg">
+  <img alt="Outcome accuracy against made-flag accuracy for jev and the no-model rule, at 82% and 100% shot detection" src="basketball/docs/figures/adjudicator-sensor-sweep-light.svg" width="760">
+</picture>
+
+Limits: simulated possessions and stated noise, not real footage; one model, two
+seeds, 300 possessions each; the generative backend has not been scored on this set
+(`python -m montehall_cv.harness.sim_eval --backends generative jev` runs it). The
+figures rebuild with `python scripts/plot_adjudicator_results.py`.
+
+A first version of this table reported lower numbers for every row (rule 0.663, jev
+0.646). The sensor sweep exposed the cause: the trace builder let the shot that ended
+one possession appear as the next possession's first shot event, which capped every
+score near 0.78 even with perfect sensors. It is fixed and pinned by two regression
+tests in `tests/test_sim_possessions.py`.
 
 ## Running the tests
 

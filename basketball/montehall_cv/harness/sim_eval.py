@@ -18,13 +18,17 @@ from montehall_cv.harness.adjudicators import BACKENDS, JevAdjudicator
 from montehall_cv.harness.compare import compare_traces
 
 
+def naive_outcome(trace: dict) -> str:
+    shots = trace["shot_events"]
+    return "turnover" if not shots else ("made_fg" if shots[-1]["made"] else "missed_fg_dreb")
+
+
 def _naive_rule(pairs: list[tuple[dict, dict]]) -> dict:
     """The no-model reference: trust the last detected shot's made flag, call a
     possession with no detected shot a turnover, name the last ball handler."""
     right = named = named_right = makes = 0
     for trace, truth in pairs:
-        shots = trace["shot_events"]
-        outcome = "turnover" if not shots else ("made_fg" if shots[-1]["made"] else "missed_fg_dreb")
+        outcome = naive_outcome(trace)
         right += outcome == truth["outcome"]
         if truth["outcome"] == "made_fg":
             makes += 1
@@ -72,7 +76,9 @@ def main() -> None:
         )
         informed.name = "jev-informed"
         backends.append(informed)
-    report = compare_traces(traces, truth, backends, args.cache, scorer_truth=scorers)
+    report = compare_traces(
+        traces, truth, backends, args.cache, scorer_truth=scorers, reference=naive_outcome
+    )
     report["naive_rule"] = _naive_rule(pairs)
     report["setup"] = {
         "possessions": args.possessions,

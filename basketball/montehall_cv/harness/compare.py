@@ -40,11 +40,17 @@ def compare_traces(
     backends: list,
     cache_dir: Path,
     scorer_truth: dict[int, int | None] | None = None,
+    keep_rows: bool = False,
+    reference=None,
 ) -> dict:
     """Every backend over the same traces. Outcome accuracy and calibration are
     scored on the verdicts a backend commits to; abstentions ("unclear") are
     counted, never scored as wrong. With scorer_truth, scorer attribution is
-    scored on possessions that truly ended in a make."""
+    scored on possessions that truly ended in a make. With reference (a function
+    trace -> outcome, e.g. a no-model rule), the reference is scored on exactly
+    the possessions the backend answered and on the ones it abstained on, which
+    is the only fair way to compare a backend that abstains with one that never
+    does; forced_accuracy scores the backend's best non-"unclear" guess on all."""
     report: dict = {"n_possessions": len(traces), "backends": {}}
     for backend in backends:
         adjudicator = make_adjudicator(backend) if isinstance(backend, str) else backend
@@ -52,10 +58,21 @@ def compare_traces(
         cache = VlmCache(cache_dir / f"compare_{name}.jsonl")
         confidence, correct, abstained = [], [], 0
         named = named_right = makes = 0
+        ref_answered = ref_abstained = forced = forced_n = 0
         for trace in traces:
             pid = trace["possession_id"]
             verdict = adjudicator.adjudicate(trace, cache=cache)
             outcome = verdict.get("outcome")
+            answered = outcome not in (None, "unclear") and verdict.get("confidence") is not None
+            if reference is not None:
+                hit = reference(trace) == truth[pid]
+                ref_answered += hit and answered
+                ref_abstained += hit and not answered
+            probabilities = verdict.get("outcome_probabilities")
+            if probabilities:
+                guess = max((k for k in probabilities if k != "unclear"), key=lambda k: probabilities[k])
+                forced += guess == truth[pid]
+                forced_n += 1
             if scorer_truth is not None and truth[pid] == "made_fg":
                 makes += 1
                 if outcome == "made_fg" and verdict.get("scorer_entity") is not None:
@@ -74,6 +91,13 @@ def compare_traces(
         }
         if confidence:
             entry.update(summarize(confidence, correct))
+        if reference is not None:
+            entry["reference_on_answered"] = ref_answered / len(confidence) if confidence else None
+            entry["reference_on_abstained"] = ref_abstained / abstained if abstained else None
+        if forced_n:
+            entry["forced_accuracy"] = forced / forced_n
+        if keep_rows:
+            entry["rows"] = [[c, bool(ok)] for c, ok in zip(confidence, correct, strict=True)]
         if scorer_truth is not None:
             entry["scorer"] = {
                 "true_makes": makes,
