@@ -114,7 +114,8 @@ What the numbers say:
 
 - **The model's outcome judgment is the rule's.** Forced to answer everything, jev
   scores 0.800, exactly the rule. On the 182 possessions jev chose to answer, the rule
-  also scores 0.830. Seed 7 repeats it (0.793 against 0.797).
+  also scores 0.830. Seed 7 repeats it (0.793 against 0.797,
+  [`adjudicators-sim-seed7.json`](basketball/results/adjudicators-sim-seed7.json)).
 - **What the model adds is knowing when it does not know.** It abstains on 39% of
   possessions, and those are the hard ones: the rule gets only 0.75 of them right
   (0.70 on seed 7) against 0.83 to 0.86 on the rest. Within what it answers, its

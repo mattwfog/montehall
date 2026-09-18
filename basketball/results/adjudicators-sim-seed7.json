@@ -1,0 +1,249 @@
+{
+  "n_possessions": 300,
+  "backends": {
+    "jev": {
+      "model": "jev-latest",
+      "abstained": 116,
+      "answered": 184,
+      "coverage": 0.6133333333333333,
+      "n": 184,
+      "accuracy": 0.8586956521739131,
+      "mean_confidence": 0.9356521739130435,
+      "ece": 0.08239130434782621,
+      "brier": 0.11329782608695652,
+      "reliability": [
+        {
+          "lo": 0.5,
+          "hi": 0.6,
+          "n": 1,
+          "mean_confidence": 0.5,
+          "accuracy": 1.0
+        },
+        {
+          "lo": 0.6,
+          "hi": 0.7,
+          "n": 1,
+          "mean_confidence": 0.66,
+          "accuracy": 0.0
+        },
+        {
+          "lo": 0.7,
+          "hi": 0.8,
+          "n": 6,
+          "mean_confidence": 0.755,
+          "accuracy": 0.16666666666666666
+        },
+        {
+          "lo": 0.8,
+          "hi": 0.9,
+          "n": 42,
+          "mean_confidence": 0.8645238095238096,
+          "accuracy": 0.7142857142857143
+        },
+        {
+          "lo": 0.9,
+          "hi": 1.0,
+          "n": 134,
+          "mean_confidence": 0.9713432835820898,
+          "accuracy": 0.9402985074626866
+        }
+      ],
+      "precision_at_coverage": [
+        {
+          "threshold": 0.5,
+          "coverage": 1.0,
+          "precision": 0.8586956521739131,
+          "n": 184
+        },
+        {
+          "threshold": 0.66,
+          "coverage": 0.9945652173913043,
+          "precision": 0.8579234972677595,
+          "n": 183
+        },
+        {
+          "threshold": 0.71,
+          "coverage": 0.9891304347826086,
+          "precision": 0.8626373626373627,
+          "n": 182
+        },
+        {
+          "threshold": 0.74,
+          "coverage": 0.9836956521739131,
+          "precision": 0.8674033149171271,
+          "n": 181
+        },
+        {
+          "threshold": 0.76,
+          "coverage": 0.9782608695652174,
+          "precision": 0.8722222222222222,
+          "n": 180
+        },
+        {
+          "threshold": 0.77,
+          "coverage": 0.967391304347826,
+          "precision": 0.8764044943820225,
+          "n": 178
+        },
+        {
+          "threshold": 0.79,
+          "coverage": 0.9619565217391305,
+          "precision": 0.8813559322033898,
+          "n": 177
+        },
+        {
+          "threshold": 0.8,
+          "coverage": 0.9565217391304348,
+          "precision": 0.8863636363636364,
+          "n": 176
+        },
+        {
+          "threshold": 0.81,
+          "coverage": 0.9510869565217391,
+          "precision": 0.8914285714285715,
+          "n": 175
+        },
+        {
+          "threshold": 0.83,
+          "coverage": 0.9347826086956522,
+          "precision": 0.8895348837209303,
+          "n": 172
+        },
+        {
+          "threshold": 0.84,
+          "coverage": 0.9239130434782609,
+          "precision": 0.888235294117647,
+          "n": 170
+        },
+        {
+          "threshold": 0.85,
+          "coverage": 0.9130434782608695,
+          "precision": 0.8928571428571429,
+          "n": 168
+        },
+        {
+          "threshold": 0.86,
+          "coverage": 0.8967391304347826,
+          "precision": 0.896969696969697,
+          "n": 165
+        },
+        {
+          "threshold": 0.87,
+          "coverage": 0.8695652173913043,
+          "precision": 0.9125,
+          "n": 160
+        },
+        {
+          "threshold": 0.88,
+          "coverage": 0.842391304347826,
+          "precision": 0.9161290322580645,
+          "n": 155
+        },
+        {
+          "threshold": 0.89,
+          "coverage": 0.7608695652173914,
+          "precision": 0.9357142857142857,
+          "n": 140
+        },
+        {
+          "threshold": 0.9,
+          "coverage": 0.7282608695652174,
+          "precision": 0.9402985074626866,
+          "n": 134
+        },
+        {
+          "threshold": 0.91,
+          "coverage": 0.7228260869565217,
+          "precision": 0.9398496240601504,
+          "n": 133
+        },
+        {
+          "threshold": 0.92,
+          "coverage": 0.6467391304347826,
+          "precision": 0.9327731092436975,
+          "n": 119
+        },
+        {
+          "threshold": 0.93,
+          "coverage": 0.5652173913043478,
+          "precision": 0.9326923076923077,
+          "n": 104
+        },
+        {
+          "threshold": 0.94,
+          "coverage": 0.5271739130434783,
+          "precision": 0.9278350515463918,
+          "n": 97
+        },
+        {
+          "threshold": 0.95,
+          "coverage": 0.5108695652173914,
+          "precision": 0.925531914893617,
+          "n": 94
+        },
+        {
+          "threshold": 0.96,
+          "coverage": 0.4945652173913043,
+          "precision": 0.945054945054945,
+          "n": 91
+        },
+        {
+          "threshold": 0.97,
+          "coverage": 0.483695652173913,
+          "precision": 0.9438202247191011,
+          "n": 89
+        },
+        {
+          "threshold": 0.98,
+          "coverage": 0.4782608695652174,
+          "precision": 0.9545454545454546,
+          "n": 88
+        },
+        {
+          "threshold": 0.99,
+          "coverage": 0.42934782608695654,
+          "precision": 0.9746835443037974,
+          "n": 79
+        },
+        {
+          "threshold": 1.0,
+          "coverage": 0.33695652173913043,
+          "precision": 0.9838709677419355,
+          "n": 62
+        }
+      ],
+      "reference_on_answered": 0.8586956521739131,
+      "reference_on_abstained": 0.6982758620689655,
+      "forced_accuracy": 0.7933333333333333,
+      "scorer": {
+        "true_makes": 118,
+        "named": 78,
+        "named_correct": 55,
+        "precision": 0.7051282051282052,
+        "coverage": 0.6610169491525424
+      }
+    }
+  },
+  "naive_rule": {
+    "accuracy": 0.7966666666666666,
+    "coverage": 1.0,
+    "scorer": {
+      "true_makes": 118,
+      "named": 80,
+      "named_correct": 58,
+      "precision": 0.725,
+      "coverage": 0.6779661016949152
+    }
+  },
+  "setup": {
+    "possessions": 300,
+    "seed": 7,
+    "shot_detect_p": 0.82,
+    "made_flag_p": 0.875,
+    "truth_mix": {
+      "made_fg": 118,
+      "missed_fg_dreb": 96,
+      "turnover": 86
+    }
+  }
+}
