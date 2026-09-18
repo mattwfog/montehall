@@ -66,8 +66,35 @@ a one-sample trace came back `unclear` at 0.64, so the verdict abstained. It als
 failed one case: given a made shot in a possession where only the defense ever held
 the ball, its self-contradiction judgment was 0.13. That contradiction is computable,
 so it is now detected in code (`structural_anomalies`) and the model is only asked
-for what code cannot decide. A scored comparison on real games is not in the
-repository yet.
+for what code cannot decide.
+
+### Scored on simulated possessions
+
+The state simulator knows how every possession ended, so it supplies exact truth.
+[`harness/sim_possessions.py`](basketball/montehall_cv/harness/sim_possessions.py) replays
+sim games and hands the adjudicator the degraded trace the pipeline would see: ball
+control only on ticks the ball was observed, tracker id swaps included, shots detected
+82% of the time and their made flag right 87.5% of the time (the fixed-camera figures
+from the paper). 300 possessions, seed 11, `jev-1.13.0`, 2026-09-18
+([`results/adjudicators-sim.json`](basketball/results/adjudicators-sim.json)):
+
+| adjudicator | coverage | outcome accuracy | mean confidence | ECE | scorer precision / coverage |
+|---|---|---|---|---|---|
+| no model: trust the last shot flag | 1.00 | 0.663 | n/a | n/a | 0.71 / 0.73 |
+| jev | 0.79 | 0.646 | 0.905 | 0.260 | 0.70 / 0.71 |
+| jev, told the sensors' error rates | 0.79 | 0.646 | 0.872 | 0.227 | 0.71 / 0.70 |
+
+The result is negative and it replicated on a second seed. The model does not beat a
+one-line rule, and it is overconfident: verdicts it reports at 0.97 are right 67% of the
+time, so raising the threshold buys little precision (0.65 at full coverage, 0.70 at
+half). It reads the made flag as fact. Putting the measured error rates in its state
+moved calibration only slightly. The information limit here is in the sensors, not the
+adjudicator, which is the thesis's own argument: a better shot channel or an external
+anchor will move this number and a smarter reader of the same evidence will not. The
+model's raw confidence should not drive abstention without recalibration against truth.
+Limits: simulated possessions and stated noise, not real footage; the generative
+backend has not been scored on this set (`python -m montehall_cv.harness.sim_eval
+--backends haiku jev` runs it).
 
 ## Running the tests
 

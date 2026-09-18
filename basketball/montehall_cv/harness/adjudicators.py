@@ -59,29 +59,70 @@ class Adjudicator(Protocol):
     def adjudicate(self, trace: dict, cache: VlmCache | None = None) -> dict: ...
 
 
-class HaikuAdjudicator:
-    name = "haiku"
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
+OPENROUTER_HAIKU = "anthropic/claude-haiku-4.5"
+OPENROUTER_DEFAULT = "deepseek/deepseek-v4-flash-0731:free"
 
-    def __init__(self, client: Any | None = None) -> None:
-        if client is None:
-            import anthropic
 
-            api_key = os.environ.get("ANTHROPIC_API_KEY")
-            if not api_key:
-                raise RuntimeError("ANTHROPIC_API_KEY not set")
-            client = anthropic.Anthropic(api_key=api_key)
+class _OpenRouterMessages:
+    """The slice of the Anthropic client the haiku backend uses, served by
+    OpenRouter's chat-completions endpoint. Standard library only."""
+
+    def __init__(self, api_key: str) -> None:
+        self._api_key = api_key
+        self.messages = self
+
+    def create(self, *, model: str, max_tokens: int, system: str, messages: list[dict]) -> Any:
+        import time
+        import urllib.error
+        import urllib.request
+        from types import SimpleNamespace
+
+        body = {
+            "model": model,
+            "max_tokens": max_tokens,
+            "messages": [{"role": "system", "content": system}, *messages],
+        }
+        request = urllib.request.Request(
+            OPENROUTER_URL,
+            data=json.dumps(body).encode(),
+            headers={"Authorization": f"Bearer {self._api_key}", "Content-Type": "application/json"},
+        )
+        for attempt in range(6):
+            try:
+                with urllib.request.urlopen(request, timeout=120) as response:
+                    payload = json.load(response)
+                break
+            except urllib.error.HTTPError as error:
+                if error.code not in (429, 502, 503) or attempt == 5:
+                    raise
+                time.sleep(min(60, 5 * 2**attempt))
+        choices = payload.get("choices") or [{}]
+        text = (choices[0].get("message") or {}).get("content") or ""
+        return SimpleNamespace(content=[SimpleNamespace(text=text)])
+
+
+class _GenerativeAdjudicator:
+    """One generative call per possession: the model writes the JSON verdict and
+    reports its own confidence."""
+
+    name = "generative"
+    model = ""
+    max_tokens = 500
+
+    def __init__(self, client: Any) -> None:
         self._client = client
 
     def adjudicate(self, trace: dict, cache: VlmCache | None = None) -> dict:
         payload = trace_json(trace)
-        key = content_key(HAIKU_MODEL, HAIKU_SYSTEM, payload)
+        key = content_key(self.model, HAIKU_SYSTEM, payload)
         if cache is not None:
             hit = cache.get(key)
             if hit is not None:
                 return hit
         response = self._client.messages.create(
-            model=HAIKU_MODEL,
-            max_tokens=500,
+            model=self.model,
+            max_tokens=self.max_tokens,
             system=HAIKU_SYSTEM,
             messages=[{"role": "user", "content": payload}],
         )
@@ -98,6 +139,40 @@ class HaikuAdjudicator:
         if cache is not None:
             cache.put(key, verdict)
         return verdict
+
+
+class HaikuAdjudicator(_GenerativeAdjudicator):
+    name = "haiku"
+    model = HAIKU_MODEL
+
+    def __init__(self, client: Any | None = None) -> None:
+        if client is None:
+            if os.environ.get("ANTHROPIC_API_KEY"):
+                import anthropic
+
+                client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+            elif os.environ.get("OPENROUTER_API_KEY"):
+                client = _OpenRouterMessages(os.environ["OPENROUTER_API_KEY"])
+                self.model = OPENROUTER_HAIKU
+            else:
+                raise RuntimeError("set ANTHROPIC_API_KEY or OPENROUTER_API_KEY")
+        super().__init__(client)
+
+
+class OpenRouterAdjudicator(_GenerativeAdjudicator):
+    """Any OpenRouter chat model as the generative backend, same prompt as haiku.
+    MONTEHALL_OPENROUTER_MODEL picks the model."""
+
+    name = "openrouter"
+    max_tokens = 2000  # room for models that reason before they answer
+
+    def __init__(self, client: Any | None = None, model: str | None = None) -> None:
+        self.model = model or os.environ.get("MONTEHALL_OPENROUTER_MODEL", OPENROUTER_DEFAULT)
+        if client is None:
+            if not os.environ.get("OPENROUTER_API_KEY"):
+                raise RuntimeError("OPENROUTER_API_KEY not set")
+            client = _OpenRouterMessages(os.environ["OPENROUTER_API_KEY"])
+        super().__init__(client)
 
 
 # Decision thresholds for the jev backend. They are starting points, not tuned
@@ -165,21 +240,34 @@ def structural_anomalies(trace: dict) -> list[str]:
     return found
 
 
-def jev_questions(trace: dict) -> tuple[dict, dict[str, dict]]:
+def jev_questions(trace: dict, sensor_reliability: dict | None = None) -> tuple[dict, dict[str, dict]]:
     """State and typed questions for one possession, as plain dicts.
+
+    sensor_reliability, when given, goes into the state as measured facts about
+    the upstream stages (how often a shot is detected at all, how often its made
+    flag is right). Without it the model has no way to know the flag can be
+    wrong and reads it as fact.
 
     Every question is asked in one request (speculative fan-out): the scorer and
     assist questions state their premise, and code consumes them only when the
     outcome answer makes them applicable.
     """
     state = dict(trace)
+    reliability_note = ""
+    if sensor_reliability:
+        state["sensor_reliability"] = sensor_reliability
+        reliability_note = (
+            " The upstream stages are imperfect, and `sensor_reliability` gives their "
+            "measured rates: a real shot can be missing from `shot_events`, and a "
+            "detected shot's `made` flag can be wrong. Weigh the evidence accordingly."
+        )
     questions: dict[str, dict] = {
         "outcome": {
             "type": "choice",
             "instructions": "This is a symbolic trace of one basketball possession from "
             "a computer-vision pipeline; ball detection is sparse, so the trace may be "
             "incomplete. Applying FIBA statistician conventions, how did the possession "
-            "end?",
+            "end?" + reliability_note,
             "criteria": _OUTCOME_CRITERIA,
         },
         "anomaly": {
@@ -264,7 +352,13 @@ def compose_jev_verdict(trace: dict, answers: dict[str, dict]) -> dict:
 class JevAdjudicator:
     name = "jev"
 
-    def __init__(self, client: Any | None = None, model: str = JEV_MODEL) -> None:
+    def __init__(
+        self,
+        client: Any | None = None,
+        model: str = JEV_MODEL,
+        sensor_reliability: dict | None = None,
+    ) -> None:
+        self._sensor_reliability = sensor_reliability
         if client is None:
             from typesafe_sdk import TypeSafeClient
 
@@ -275,7 +369,7 @@ class JevAdjudicator:
         self._model = model
 
     def adjudicate(self, trace: dict, cache: VlmCache | None = None) -> dict:
-        state, questions = jev_questions(trace)
+        state, questions = jev_questions(trace, self._sensor_reliability)
         key = content_key(
             self._model,
             json.dumps(questions, sort_keys=True),
@@ -297,7 +391,7 @@ def _answer_dict(answer: Any) -> dict:
     return answer.model_dump() if hasattr(answer, "model_dump") else dict(answer)
 
 
-BACKENDS = {"haiku": HaikuAdjudicator, "jev": JevAdjudicator}
+BACKENDS = {"haiku": HaikuAdjudicator, "jev": JevAdjudicator, "openrouter": OpenRouterAdjudicator}
 
 
 def make_adjudicator(name: str) -> Adjudicator:
