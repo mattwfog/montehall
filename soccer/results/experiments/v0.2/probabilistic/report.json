@@ -1,0 +1,30 @@
+{
+  "fit": "game 1 first half",
+  "uncertainty_calibration": "game 1 second half",
+  "evaluation": "game 2, both halves",
+  "epochs": 8,
+  "seed": 41,
+  "training_windows": 31303,
+  "calibration_windows": 32373,
+  "evaluation_windows": 62008,
+  "gaussian_gru": {
+    "ade_m": 1.3711817264556885,
+    "fde_3s_m": 3.0437817573547363
+  },
+  "mean_nll": 2.3956458166594397,
+  "constant_velocity_gaussian_nll": 3.0185493993669366,
+  "uncalibrated_90_point_coverage": 0.9036102868447082,
+  "calibrated_90_point_coverage": 0.8838031651829872,
+  "calibrated_90_endpoint_coverage": 0.8705167075216101,
+  "mean_endpoint_radius_m": 5.325241565704346,
+  "calibration_factor": 1.9978234767913818,
+  "hardware": "NVIDIA GB10",
+  "torch_version": "2.10.0a0+a36e1d39eb.nv26.01.42222806",
+  "code_sha256": "c33e1b93b33467ef6494807e161d7b00112769dd5956619e218d2a8f700b0f38",
+  "limitations": [
+    "Single isotropic Gaussian per player and horizon; not multimodal joint tactics",
+    "Empirical pointwise calibration; not simultaneous whole-trajectory or team coverage",
+    "Correlated windows and distribution shift preclude a coverage guarantee",
+    "Uses less training data than the earlier all-game-1 deterministic baseline"
+  ]
+}

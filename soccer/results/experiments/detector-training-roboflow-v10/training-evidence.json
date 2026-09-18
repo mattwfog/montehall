@@ -1,0 +1,70 @@
+{
+  "schema": "detector-training-evidence/v1",
+  "completed": true,
+  "run_kind": "five_epoch_pilot",
+  "failure": null,
+  "optimizer_steps": 160,
+  "epochs_with_training_end_hook": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "initial_classification_head_sha256": "54ed55d3197ad365ccee0579a5fb741452c6e0b888b2998fbb357d87cd025334",
+  "final_classification_head_sha256": "1c7998cf2250d22eab0434c8b432adbafef5da165e7f64861b14eb70c21654aa",
+  "classification_head_changed": true,
+  "finite_gradients": true,
+  "last_training_loss": 0.2629178464412689,
+  "checkpoints": [
+    {
+      "path": "checkpoint_0.ckpt",
+      "sha256": "3b5772182b6a5cf37b827010be2b5a6b113e5308ea2156be6964149b7ef280d9",
+      "bytes": 534923364
+    },
+    {
+      "path": "checkpoint_1.ckpt",
+      "sha256": "7df35c2c09b553f18a88f6f3f305cbe0846f07e3aed2024fd8663da4730c7fc6",
+      "bytes": 534923364
+    },
+    {
+      "path": "checkpoint_2.ckpt",
+      "sha256": "3c9b869c44591454c01e054abf20f45e0adccbfb8020b6c0173d9cf079e661e7",
+      "bytes": 534923364
+    },
+    {
+      "path": "checkpoint_3.ckpt",
+      "sha256": "5bc0ec2451f1cbf032ce32b50b5510adda46cd0c3dec7e315f52e7d31c06d39c",
+      "bytes": 534923364
+    },
+    {
+      "path": "checkpoint_4.ckpt",
+      "sha256": "4156509485e654e3e72658d357e18864bedd77c58683e4d51080b3deb2e6a85b",
+      "bytes": 534923364
+    },
+    {
+      "path": "checkpoint_best_ema.pth",
+      "sha256": "b11a654296400278be38b71cba7ee71e6d3c0b83c39fee722ec6ccc932074052",
+      "bytes": 133819281
+    },
+    {
+      "path": "checkpoint_best_total.pth",
+      "sha256": "274b3d1c1829a6a595cb052e5b2b035f6253feeb7e537bd6a47a235977fbbeb6",
+      "bytes": 133806681
+    },
+    {
+      "path": "last_ema.pth",
+      "sha256": "e28f74ce3b6ac94f2732cbe028ba81832006fdecffc7a575bb8c79ae3dde9fe2",
+      "bytes": 133813572
+    }
+  ],
+  "elapsed_s": 208.36543389502913,
+  "corpus_manifest_sha256": "568e29f943e468d5db7f65f83453117c602329eda974708d658c3efdc12f7233",
+  "selection": "Native best checkpoint by internal-development box mAP; external450 unused",
+  "cuda_peak_allocated_bytes": 2199166976,
+  "limitations": [
+    "Roboflow labels have no stated exhaustiveness guarantee, in particular for the ball",
+    "Unknown public pretrained-checkpoint training overlap",
+    "Five epochs without search establish feasibility, not convergence"
+  ]
+}

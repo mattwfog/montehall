@@ -1,0 +1,14 @@
+{
+  "brief_sample": "g2-f58880",
+  "brief_generated": true,
+  "scenario_player": "Home:Player11",
+  "scenario_dx_m": -3,
+  "scenario_dy_m": 0,
+  "scenario_changed_features": 1,
+  "lineup": {
+    "status": "abstain",
+    "reason": "Player availability is missing",
+    "lineup": []
+  },
+  "causal_managerial_validation": "unmeasured"
+}

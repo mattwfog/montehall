@@ -1,0 +1,7 @@
+{
+  "benchmark": "synthetic 22-player image tracks, noise and 8% random missed detections",
+  "identity_continuity_fraction": 1.0,
+  "associations": 1981,
+  "real_video_identity_accuracy": "unmeasured without track annotations",
+  "named_identity": "abstains: roster and jersey evidence unavailable"
+}

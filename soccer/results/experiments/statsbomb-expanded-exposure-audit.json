@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "kind": "prior-project-development-exposure-audit",
+  "experiment": "artifacts/experiments/statsbomb-expanded-v1",
+  "prior_source_manifest": "artifacts/integrations/statsbomb-spadl/source-manifest.json",
+  "prior_use": "Game 3788742 (Denmark-Finland) was the evaluation match in the earlier two-match xT smoke test.",
+  "exposed_test_game_ids": [3788742],
+  "interpretation": "The new five-match test is disjoint from this experiment's fitting and model-selection games, but not a pristine never-seen holdout across the whole project.",
+  "new_classifier_selection_used_this_game": false,
+  "protocol_splits_models_or_metrics_changed": false,
+  "completed_report_preserved": true,
+  "next_evaluation_policy": "Use a new untouched corpus for subsequent model selection comparisons."
+}

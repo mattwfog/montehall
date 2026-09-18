@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "dataset_manifest_sha256": "905e66a083004eac0c64769132b2dfd5a9595caee5cb4ac1be908dddd69c82f8",
+  "source_repository": "https://github.com/hudl/open-data",
+  "source_commit": "4b73468fc5b0f1950f9f66fada70ad3a4f9327cb",
+  "game_counts": {
+    "train": 20,
+    "dev": 5,
+    "test": 5
+  },
+  "action_counts": {
+    "train": 45403,
+    "dev": 10854,
+    "test": 11612
+  },
+  "splits": {
+    "train": [
+      3794687,
+      3788757,
+      3788748,
+      3788747,
+      3788756,
+      3788767,
+      3788759,
+      3795220,
+      3795187,
+      3795107,
+      3795108,
+      3788760,
+      3795506,
+      3788764,
+      3788752,
+      3795221,
+      3788743,
+      3788770,
+      3794689,
+      3788758
+    ],
+    "dev": [
+      3788773,
+      3788776,
+      3788763,
+      3795109,
+      3794685
+    ],
+    "test": [
+      3788774,
+      3794691,
+      3794686,
+      3788742,
+      3794688
+    ]
+  },
+  "vaep_model": {
+    "model_sha256": "b493ca19ba4d471bfc7df0f907d65e610bf4d8ea80603a78a7a880332483c666",
+    "training_game_ids": [
+      3794687,
+      3788757,
+      3788748,
+      3788747,
+      3788756,
+      3788767,
+      3788759,
+      3795220,
+      3795187,
+      3795107,
+      3795108,
+      3788760,
+      3795506,
+      3788764,
+      3788752,
+      3795221,
+      3788743,
+      3788770,
+      3794689,
+      3788758
+    ],
+    "development_game_ids": [
+      3788773,
+      3788776,
+      3788763,
+      3795109,
+      3794685
+    ],
+    "features": [
+      "actiontype_pass_a0",
+      "actiontype_cross_a0",
+      "actiontype_throw_in_a0",
+      "actiontype_freekick_crossed_a0",
+      "actiontype_freekick_short_a0",
+      "actiontype_corner_crossed_a0",
+      "actiontype_corner_short_a0",
+      "actiontype_take_on_a0",
+      "actiontype_foul_a0",
+      "actiontype_tackle_a0",
+      "actiontype_interception_a0",
+      "actiontype_shot_a0",
+      "actiontype_shot_penalty_a0",
+      "actiontype_shot_freekick_a0",
+      "actiontype_keeper_save_a0",
+      "actiontype_keeper_claim_a0",
+      "actiontype_keeper_punch_a0",
+      "actiontype_keeper_pick_up_a0",
+      "actiontype_clearance_a0",
+      "actiontype_bad_touch_a0",
+      "actiontype_non_action_a0",
+      "actiontype_dribble_a0",
+      "actiontype_goalkick_a0",
+      "result_fail_a0",
+      "result_success_a0",
+      "result_offside_a0",
+      "result_owngoal_a0",
+      "result_yellow_card_a0",
+      "result_red_card_a0",
+      "bodypart_foot_a0",
+      "bodypart_head_a0",
+      "bodypart_other_a0",
+      "bodypart_head/other_a0",
+      "start_x_a0",
+      "start_y_a0",
+      "end_x_a0",
+      "end_y_a0",
+      "start_dist_to_goal_a0",
+      "start_angle_to_goal_a0",
+      "end_dist_to_goal_a0",
+      "end_angle_to_goal_a0",
+      "dx_a0",
+      "dy_a0",
+      "movement_a0"
+    ],
+    "train_prevalence": {
+      "scores": 0.009382639913662092,
+      "concedes": 0.001409598484681629
+    },
+    "selection": {
+      "scores": {
+        "selected_C": 0.1,
+        "dev_candidates": [
+          {
+            "C": 0.1,
+            "brier": 0.01133359937114575,
+            "log_loss": 0.06033671223996071,
+            "positive_count": 141,
+            "actions": 10854,
+            "observed_prevalence": 0.012990602542841349,
+            "mean_predicted_probability": 0.009822379921594864
+          },
+          {
+            "C": 1.0,
+            "brier": 0.01123049649983946,
+            "log_loss": 0.060863192110434124,
+            "positive_count": 141,
+            "actions": 10854,
+            "observed_prevalence": 0.012990602542841349,
+            "mean_predicted_probability": 0.009891918688016607
+          }
+        ],
+        "dev_prevalence_baseline": {
+          "brier": 0.012834864182748831,
+          "log_loss": 0.06995622036793432,
+          "positive_count": 141,
+          "actions": 10854,
+          "observed_prevalence": 0.012990602542841349,
+          "mean_predicted_probability": 0.00938263991366209
+        }
+      },
+      "concedes": {
+        "selected_C": 0.1,
+        "dev_candidates": [
+          {
+            "C": 0.1,
+            "brier": 0.002600641592229896,
+            "log_loss": 0.01727471293481521,
+            "positive_count": 29,
+            "actions": 10854,
+            "observed_prevalence": 0.002671826054910632,
+            "mean_predicted_probability": 0.001561736381542127
+          },
+          {
+            "C": 1.0,
+            "brier": 0.002600347590056005,
+            "log_loss": 0.017439839680332983,
+            "positive_count": 29,
+            "actions": 10854,
+            "observed_prevalence": 0.002671826054910632,
+            "mean_predicted_probability": 0.0015512795349645664
+          }
+        ],
+        "dev_prevalence_baseline": {
+          "brier": 0.0026662806188819783,
+          "log_loss": 0.01894589359987629,
+          "positive_count": 29,
+          "actions": 10854,
+          "observed_prevalence": 0.002671826054910632,
+          "mean_predicted_probability": 0.0014095984846816294
+        }
+      }
+    },
+    "protocol_sha256": "a48d380cc499756e4ebc4e0790bd774d7db9e5caef5679c31659c84fe43a5967"
+  },
+  "test_metrics": {
+    "scores": {
+      "model": {
+        "brier": 0.013189132021659937,
+        "log_loss": 0.06321637741683239,
+        "positive_count": 175,
+        "actions": 11612,
+        "observed_prevalence": 0.015070616603513607,
+        "mean_predicted_probability": 0.009837431169126954
+      },
+      "train_prevalence_baseline": {
+        "brier": 0.014875846197527808,
+        "log_loss": 0.07964797761905242,
+        "positive_count": 175,
+        "actions": 11612,
+        "observed_prevalence": 0.015070616603513607,
+        "mean_predicted_probability": 0.00938263991366209
+      },
+      "brier_skill_vs_prevalence": 0.11338609941720046
+    },
+    "concedes": {
+      "model": {
+        "brier": 0.002136881088415193,
+        "log_loss": 0.01423615989126538,
+        "positive_count": 25,
+        "actions": 11612,
+        "observed_prevalence": 0.0021529452290733725,
+        "mean_predicted_probability": 0.001536973033369112
+      },
+      "train_prevalence_baseline": {
+        "brier": 0.0021488626202963807,
+        "log_loss": 0.015540458096295716,
+        "positive_count": 25,
+        "actions": 11612,
+        "observed_prevalence": 0.0021529452290733725,
+        "mean_predicted_probability": 0.0014095984846816294
+      },
+      "brier_skill_vs_prevalence": 0.005575755177655517
+    }
+  },
+  "xT": {
+    "schema_version": 1,
+    "socceraction_version": "1.5.3",
+    "data_kind": "observed",
+    "orientation": "attacking_left_to_right",
+    "source_sha256": {
+      "train": "9e813f16e79da22f52ab4054ab5461f969b54210ad9ad3a21a162ecd3ba6cae5",
+      "evaluate": "2ac4fbc0bb1d284932bf8ab4fdfd2732d3c6f492d58064b30b9ed76d71855b2b"
+    },
+    "training_game_ids": [
+      "3788743",
+      "3788747",
+      "3788748",
+      "3788752",
+      "3788756",
+      "3788757",
+      "3788758",
+      "3788759",
+      "3788760",
+      "3788764",
+      "3788767",
+      "3788770",
+      "3794687",
+      "3794689",
+      "3795107",
+      "3795108",
+      "3795187",
+      "3795220",
+      "3795221",
+      "3795506"
+    ],
+    "evaluation_game_ids": [
+      "3788742",
+      "3788774",
+      "3794686",
+      "3794688",
+      "3794691"
+    ],
+    "training_actions": 45403,
+    "evaluation_actions": 11612,
+    "rated_successful_moves": 9156,
+    "xT_grid": [
+      16,
+      12
+    ],
+    "vaep_status": "untrained",
+    "real_world_value_accuracy": null,
+    "limitations": [
+      "xT estimates action value; fit/rate success is not an accuracy measurement",
+      "xT leaves non-successful-movement actions unrated according to upstream semantics",
+      "VAEP features and future-outcome labels are separate artifacts; no classifier trained here",
+      "Metrica CSV events are not a supported socceraction Kloppy conversion provider; no guessed mapping"
+    ],
+    "model_sha256": "8c06e0bf11532d94a1ba14e38d69a7ebf0b8e72396e5b2db4207717058509e51"
+  },
+  "artifacts": {
+    "model-provenance.json": "2b11e89afa14f9a16fb5626408e092df6363f06c0978799edb6bc96c210132eb",
+    "protocol.json": "a48d380cc499756e4ebc4e0790bd774d7db9e5caef5679c31659c84fe43a5967",
+    "test-labels.parquet": "f8d42fc639b5d17396c21cd5f5603b5f8a8ac90d3a01480e37fd6beeccdf5487",
+    "test-probabilities.parquet": "4dea7ec2d85818fec34e7821d194812ed2201434de15ada0a979ff6113f7faea",
+    "test-vaep-values.parquet": "67d38deca90e73de9be780a4d0d38ff9f40c61efc576a5b444ad32195cd86fb7",
+    "vaep-model.npz": "b493ca19ba4d471bfc7df0f907d65e610bf4d8ea80603a78a7a880332483c666",
+    "xt/action-values.parquet": "8c8d5dcadaf3f5f1ca4a9a0ff47401c43aec9bf3df17a13ba6a58c56a9f13990",
+    "xt/report.json": "aa26716f45049e74c7c61e0a17da474ea3c8ab5cf3d30d3c6c3a159f0dc17f50",
+    "xt/vaep-training-features.parquet": "6ef6790241542c7ec90b801ac2bcd56325886f66de3c84f3fd4cbf6a4ee8a99b",
+    "xt/vaep-training-labels.parquet": "ed94e40f959e0a6a7ddc91ab6740c4054074187dc988175203fa1dc610f511cd",
+    "xt/xt-model.npz": "8c06e0bf11532d94a1ba14e38d69a7ebf0b8e72396e5b2db4207717058509e51"
+  },
+  "versions": {
+    "socceraction": "1.5.3",
+    "scikit-learn": "1.9.0",
+    "numpy": "1.26.4",
+    "pandas": "2.3.3"
+  },
+  "limitations": [
+    "Preliminary current-action logistic model, not the full three-action VAEP architecture",
+    "One tournament with few independent matches; actions within matches are correlated",
+    "Match-disjoint evaluation does not imply disjoint teams or chronological deployment",
+    "Labels include the current action and truncate the horizon at period boundaries",
+    "Brier/log-loss measure outcome probabilities, not causal action value or coaching quality",
+    "xT fitting and scoring does not establish xT accuracy",
+    "No video tracking, tactical truth, or commercial license is inferred from these results"
+  ]
+}

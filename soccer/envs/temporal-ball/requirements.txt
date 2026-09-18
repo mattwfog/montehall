@@ -1,0 +1,10 @@
+# WASB inference only; retain the NVIDIA base's torch and torchvision.
+# NumPy1 preserves upstream np.Inf usage in its native tracker.
+numpy==1.26.4
+opencv-python==4.11.0.86
+hydra-core==1.3.2
+omegaconf==2.3.0
+pandas==2.2.3
+Pillow==11.1.0
+psutil==7.0.0
+

@@ -1,0 +1,75 @@
+{
+  "date": "2026-09-07",
+  "scope": "Integration of existing sources; no new model training or accuracy claims",
+  "runs": [
+    {
+      "label": "video",
+      "run_id": "6b0bd6c7e2624671bb2049c42c5865ad",
+      "source_sha256": "4386e846703c8c5ee9a5760bc684e3d01ccee0cd66cc54be7f60b7612210a531",
+      "frames": 50,
+      "stages": 10,
+      "checks_status": "partial",
+      "violations": 0,
+      "blocked_frames": 0,
+      "findings": 0,
+      "source_kind": "video",
+      "export": "artifacts/harness/exports/6b0bd6c7e2624671bb2049c42c5865ad/revision-0/90812c68f0082a90",
+      "replay_all_cached": true,
+      "scientific_status": "unmeasured"
+    },
+    {
+      "label": "metrica",
+      "run_id": "ca9b8ad157214ab294aef70b29ae4403",
+      "source_sha256": "a00ac2a05a502930dbfc3a8edf6e11537c233dc4d3480da9901133170eaf8905",
+      "frames": 50,
+      "stages": 5,
+      "checks_status": "partial",
+      "violations": 0,
+      "blocked_frames": 0,
+      "findings": 42,
+      "source_kind": "provider",
+      "export": "artifacts/harness/exports/ca9b8ad157214ab294aef70b29ae4403/revision-0/ac6003c826453f9f",
+      "replay_all_cached": true,
+      "scientific_status": "unmeasured"
+    },
+    {
+      "label": "skillcorner",
+      "run_id": "1a57b535760c4947817bf30139edb4fd",
+      "source_sha256": "84a6f2fa1f27a0ab181e2a2f26d4557f2b4eda718f1c6c2aae9b9078eb0ba2a7",
+      "frames": 100,
+      "stages": 5,
+      "checks_status": "partial",
+      "violations": 0,
+      "blocked_frames": 0,
+      "findings": 58,
+      "source_kind": "provider",
+      "export": "artifacts/harness/exports/1a57b535760c4947817bf30139edb4fd/revision-0/1b1bb54821e1ebd0",
+      "replay_all_cached": true,
+      "scientific_status": "unmeasured"
+    }
+  ],
+  "acceptance_cli": {
+    "report_object_id": "3af5540ade18d0aaa48d33ae750db81224594ebc2b5cd2709421918e9ab72504",
+    "assessment_object_id": "66e3a0b21c070437bf6dd530067c2138767a90d07afc9a97e1d32d8fbfa70d76",
+    "decision": "unmeasured; no criteria supplied"
+  },
+  "browser": {
+    "url": "http://127.0.0.1:7866",
+    "source_switch_same_revision": "verified provider to video at revision0",
+    "new_run_from_existing_provider": "186b77d4dfaa4352bd7bcef044d313c6",
+    "export": "verified ZIP download link,132.1KB"
+  },
+  "tests": {
+    "core": {
+      "passed": 137,
+      "skipped": 21,
+      "seconds": 52.86
+    },
+    "final_consistency_provider_regression": {
+      "passed": 27,
+      "seconds": 2.7,
+      "note": "After final unknown-position guard; overlaps core suite, do not sum"
+    },
+    "ruff": "passed"
+  }
+}

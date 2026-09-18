@@ -1,0 +1,5 @@
+# Separate environment: this installs the SoccerNet fork, not standard TrackEval.
+numpy==1.26.4
+scipy==1.17.1
+pytest==9.1.1
+sn-trackeval @ git+https://github.com/SoccerNet/sn-trackeval.git@9c25232f6f2b56c9f203f1eb55784ff1e97df683

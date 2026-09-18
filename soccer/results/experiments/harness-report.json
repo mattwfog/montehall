@@ -1,0 +1,111 @@
+{
+  "run_id": "e21e924274bb4391ab1afc0b60ee79a3",
+  "revision": 0,
+  "source_sha256": "7788719b32b944e42d8f1024fb4802f681bc2053d6301218a5bff6705b549f96",
+  "window": {
+    "start_s": 10,
+    "end_s": 20
+  },
+  "source_artifact_sha256": {
+    "frames": "251b2a91b6b7c9820548437f734d9f15994f8f79afb762283807e4e37922373a",
+    "detections": "409bc8254074a9907218f58e5570b4bc874c5e05407c0c4b301aa126ac7b3cad",
+    "state": "ca27a5cdc30d1c9b45a69535734d71055601f4a0c879f10a18f5df10ecebe95d",
+    "calibration": "23b7f1e28fade238a6bb37715c219485e83e80dbfdfdea79c8b225a425a3c06e",
+    "ball_candidates": "f97cb67b37f2acca25f73dab401382012578e9c05674ae47d685bd92b59ed484",
+    "report": "cd630c75df9aa8ccdc575fd32e2a250df5c51858b2c35aa40d911729012b45c9"
+  },
+  "pause": {
+    "run_id": "e21e924274bb4391ab1afc0b60ee79a3",
+    "revision": 0,
+    "status": "paused",
+    "stages": [
+      {
+        "stage": "evidence",
+        "action": "executed",
+        "artifact": "8338f923acda44ff16924403f290bc207981c5d5d0b5072608f0de186f0dc939"
+      },
+      {
+        "stage": "state",
+        "action": "executed",
+        "artifact": "a9e9de01b19becf699759f601e581fb2dc2e68bca3f02fdee4325083067f839f"
+      }
+    ],
+    "next_stage": "tactics"
+  },
+  "separate_process_resume": {
+    "run_id": "e21e924274bb4391ab1afc0b60ee79a3",
+    "revision": 0,
+    "status": "completed",
+    "stages": [
+      {
+        "stage": "evidence",
+        "action": "reused",
+        "artifact": "8338f923acda44ff16924403f290bc207981c5d5d0b5072608f0de186f0dc939"
+      },
+      {
+        "stage": "state",
+        "action": "reused",
+        "artifact": "a9e9de01b19becf699759f601e581fb2dc2e68bca3f02fdee4325083067f839f"
+      },
+      {
+        "stage": "tactics",
+        "action": "executed",
+        "artifact": "dfc485a9600f6f85b28b39ee46462f16ea5e23297238736b2298bbd78ea0e7ea"
+      },
+      {
+        "stage": "brief",
+        "action": "executed",
+        "artifact": "a8de55bd89538b2b4049ff8b95b1f8326f46f91b544405ac72da1841c2de1bfb"
+      }
+    ]
+  },
+  "repeat_run": {
+    "run_id": "e21e924274bb4391ab1afc0b60ee79a3",
+    "revision": 0,
+    "status": "completed",
+    "stages": [
+      {
+        "stage": "evidence",
+        "action": "reused",
+        "artifact": "8338f923acda44ff16924403f290bc207981c5d5d0b5072608f0de186f0dc939"
+      },
+      {
+        "stage": "state",
+        "action": "reused",
+        "artifact": "a9e9de01b19becf699759f601e581fb2dc2e68bca3f02fdee4325083067f839f"
+      },
+      {
+        "stage": "tactics",
+        "action": "reused",
+        "artifact": "dfc485a9600f6f85b28b39ee46462f16ea5e23297238736b2298bbd78ea0e7ea"
+      },
+      {
+        "stage": "brief",
+        "action": "reused",
+        "artifact": "a8de55bd89538b2b4049ff8b95b1f8326f46f91b544405ac72da1841c2de1bfb"
+      }
+    ]
+  },
+  "selected_candidate": {
+    "frame_ids": [
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95
+    ],
+    "last_observed_s": 19.0,
+    "shot_id": 0,
+    "start_s": 17.8,
+    "status": "hypothesis",
+    "team": 1
+  },
+  "unknown_possession_frames": 39,
+  "total_frames": 50,
+  "validated_recommendations": 0,
+  "export": "artifacts/harness/exports/e21e924274bb4391ab1afc0b60ee79a3/revision-0/323e811075db5fe8",
+  "correction_validation": "Synthetic regression fixtures only; no human video annotation claimed",
+  "gpu_inference": "Existing completed Spark video run imported as frozen evidence"
+}

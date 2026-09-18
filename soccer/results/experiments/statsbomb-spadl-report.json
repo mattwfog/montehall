@@ -1,0 +1,13 @@
+{
+  "game_id": 3788741,
+  "home_team_id": 909,
+  "source_url": "https://github.com/statsbomb/open-data/blob/master/data/events/3788741.json",
+  "events_sha256": "b9ddce6bee771bdb1f3564c9ac0552619257e412d0767939f1e7f1500ace3062",
+  "lineup_sha256": "5874bcd25f9c75b12ebcf14b1fa46507a349ac4de822ffe07f876d2edbe0cfca",
+  "actions": 2206,
+  "socceraction_version": "1.5.3",
+  "loader": "socceraction.data.statsbomb.StatsBombLoader local",
+  "orientation": "attacking_left_to_right",
+  "upstream_bridge_issue": "socceraction 1.5.3 Kloppy conversion fails with Kloppy 3.19: _SoccerActionCoordinateSystem() takes no arguments; direct supported StatsBomb loader used",
+  "value_accuracy": null
+}

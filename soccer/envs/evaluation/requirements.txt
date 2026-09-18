@@ -1,0 +1,9 @@
+# Tested core-compatible environment; official TrackEval source pin, not the PyPI fork.
+numpy==2.5.3
+scipy==1.18.1
+pandas==2.3.3
+pyarrow==23.0.1
+opencv-python==4.14.0.94
+pytest==9.1.1
+pycocotools==2.0.11
+trackeval @ git+https://github.com/JonathonLuiten/TrackEval.git@12c8791b303e0a0b50f753af204249e622d0281a

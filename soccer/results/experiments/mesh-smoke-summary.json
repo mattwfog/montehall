@@ -1,0 +1,33 @@
+{
+  "schema": "mesh-summary/v1",
+  "kind": "sanity_rates_not_accuracy",
+  "predictions_sha256": "70c61bfc97d14cec9c96f43fdd1f16e6e78dc609fa101260f785a033c9ec3972",
+  "backend": "sam-3d-body-dinov3",
+  "frames": 6,
+  "people": 114,
+  "people_by_role": {
+    "player": 107,
+    "referee": 6,
+    "goalkeeper": 1
+  },
+  "keypoints_inside_box_rate": 0.7993734335839598,
+  "feet_below_hips_image_rate": 1.0,
+  "reprojection_consistency": "every person within 0.5 px",
+  "camera_depth_m": {
+    "p05": 21.812764739990236,
+    "median": 36.352073669433594,
+    "p95": 56.97970352172851
+  },
+  "keypoint_vertical_extent_m": {
+    "p05": 1.4555253677070141,
+    "median": 1.5893511176109314,
+    "p95": 1.8012929692864397
+  },
+  "limitations": [
+    "No keypoint or mesh ground truth in the frozen benchmark; rates check plausibility only",
+    "Boxes are detector predictions, so mesh errors include detector box errors",
+    "Camera intrinsics are the upstream default from image size, not calibrated",
+    "Depth and extent are metres in a model-scaled camera frame, not measured pitch units",
+    "No temporal smoothing, no identity, no pitch projection in this worker"
+  ]
+}

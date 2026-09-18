@@ -1,0 +1,155 @@
+{
+  "train_game": 1,
+  "evaluation_game": 2,
+  "input_sha256": {
+    "game_1/samples.parquet": "75ea446a1a376da5488bf1cc9bcd821b425d0d53d99fdb50862dfde631995aa0",
+    "game_1/events.parquet": "7f985cb837cf8579faf092197a783dd2f861f2d71fd3ab5295fab9d01a190667",
+    "game_1/tracking.npz": "6282d870d42b6f557dba82bcafb6b46a4bf05d8f869abee80600bf79795bf2c7",
+    "game_2/samples.parquet": "48865fed07a62168bc132a1e3066f30cc7ceb2190c9f3dd653d798a57f6682c3",
+    "game_2/events.parquet": "63f5cbccf0d028989fe495a5a1986626314ff251c7f3bbc7877869d6110bdfe3",
+    "game_2/tracking.npz": "8dfb4ca809b0791cb5a0260b361949d2d450f8c1b0653cbb1228624c8c74260d"
+  },
+  "next_action": {
+    "target": "first same-team pass, shot, loss within 5s or NO_ACTION",
+    "accuracy": 0.5631229235880398,
+    "macro_f1": 0.2957061682720254,
+    "majority_accuracy": 0.7807308970099668,
+    "majority_macro_f1": 0.21921641791044777,
+    "classes": [
+      "BALL LOST",
+      "NO_ACTION",
+      "PASS",
+      "SHOT"
+    ],
+    "confusion_matrix": [
+      [
+        13,
+        13,
+        24,
+        5
+      ],
+      [
+        21,
+        19,
+        34,
+        2
+      ],
+      [
+        82,
+        39,
+        306,
+        43
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "per_class": {
+      "BALL LOST": {
+        "precision": 0.11206896551724138,
+        "recall": 0.23636363636363636,
+        "f1-score": 0.15204678362573099,
+        "support": 55.0
+      },
+      "NO_ACTION": {
+        "precision": 0.2676056338028169,
+        "recall": 0.25,
+        "f1-score": 0.2585034013605442,
+        "support": 76.0
+      },
+      "PASS": {
+        "precision": 0.8406593406593407,
+        "recall": 0.6510638297872341,
+        "f1-score": 0.7338129496402878,
+        "support": 470.0
+      },
+      "SHOT": {
+        "precision": 0.0196078431372549,
+        "recall": 1.0,
+        "f1-score": 0.038461538461538464,
+        "support": 1.0
+      },
+      "accuracy": 0.5631229235880398,
+      "macro avg": {
+        "precision": 0.3099854457791634,
+        "recall": 0.5343568665377176,
+        "f1-score": 0.2957061682720254,
+        "support": 602.0
+      },
+      "weighted avg": {
+        "precision": 0.7003842512051324,
+        "recall": 0.5631229235880398,
+        "f1-score": 0.6195006303525138,
+        "support": 602.0
+      }
+    }
+  },
+  "shot_surrogate": {
+    "target": "shot before 10s or event-derived possession end, not xG or EPV",
+    "training_positives": 27,
+    "evaluation_positives": 27,
+    "censored_training": 0,
+    "censored_evaluation": 0,
+    "model": {
+      "brier": 0.03850093984063535,
+      "log_loss": 0.14706404307409943,
+      "roc_auc": 0.8460547504025765,
+      "average_precision": 0.3082154997926239
+    },
+    "prior": {
+      "brier": 0.04284210532887726,
+      "log_loss": 0.18310028157391428,
+      "roc_auc": 0.5,
+      "average_precision": 0.044850498338870434
+    }
+  },
+  "pass_choice": {
+    "target": "successful-pass recipient imitation; not pass success or optimal action",
+    "training_events": 746,
+    "model": {
+      "events": 894,
+      "top1": 0.4519015659955257,
+      "top3": 0.8098434004474273,
+      "mrr": 0.6452776002272648
+    },
+    "nearest_teammate": {
+      "events": 894,
+      "top1": 0.3344519015659955,
+      "top3": 0.732662192393736,
+      "mrr": 0.5558360853662867
+    },
+    "limitations": [
+      "Only annotated completed passes with visible intended recipient",
+      "Choice model scores are not calibrated completion probabilities"
+    ]
+  },
+  "set_pieces": {
+    "intervals": 157,
+    "with_following_shot": 4,
+    "interpretation": "Descriptive restart retrieval; no corner intervention model"
+  },
+  "retrieval": {
+    "queries": 602,
+    "neighbors": 1806,
+    "cross_match_only": true,
+    "analyst_relevance": "unmeasured"
+  },
+  "descriptive_counts": {
+    "game_1/middle_third": 291,
+    "game_1/build_up": 167,
+    "game_1/final_third": 121,
+    "game_2/middle_third": 332,
+    "game_2/build_up": 147,
+    "game_2/final_third": 123
+  },
+  "limitations": [
+    "Phase, pressing, shape and rest-defense labels are transparent proxies",
+    "Formation template fit is not validated tactical role or nominal formation recognition",
+    "Shot surrogate is sparse; no goal quality, game score, or managerial context",
+    "Similar sequences are feature neighbors, not causal evidence",
+    "Pass alternatives assume stationary receivers and simplified ground-ball/defender motion"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "crops": 82,
+  "crops_with_digit_candidate": 11,
+  "tracklets_reviewed": 21,
+  "provisional_jersey_hypotheses": 0,
+  "named_identities": 0,
+  "ocr_accuracy": null,
+  "limitations": [
+    "Tiny broadcast crops often lack a visible number",
+    "OCR confidence is not calibrated correctness; all accepted numbers remain provisional",
+    "No roster is available and no player names are inferred"
+  ]
+}

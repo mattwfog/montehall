@@ -1,0 +1,50 @@
+{
+  "train_game": 1,
+  "evaluation_game": 2,
+  "epochs": 8,
+  "seed": 20260907,
+  "device": "cuda",
+  "hardware": "NVIDIA GB10",
+  "torch_version": "2.10.0a0+a36e1d39eb.nv26.01.42222806",
+  "numpy_version": "2.1.0",
+  "history_s": 2,
+  "forecast_s": 3,
+  "sample_hz": 5,
+  "training_player_windows": 63676,
+  "evaluation_player_windows": 62008,
+  "gru": {
+    "ade_m": 1.0713764429092407,
+    "fde_3s_m": 2.5285441875457764
+  },
+  "constant_velocity": {
+    "ade_m": 1.5741419586988123,
+    "fde_3s_m": 3.488745643466267
+  },
+  "stationary": {
+    "ade_m": 2.6425607204437256,
+    "fde_3s_m": 4.792851448059082
+  },
+  "training_mse_by_epoch": [
+    2.7207814212330352,
+    2.275391485667257,
+    2.1624066989485797,
+    2.0605852450398285,
+    1.9355677352552776,
+    1.7793397851472255,
+    1.6315612896759237,
+    1.5149522383343792
+  ],
+  "elapsed_s": 8.559256072156131,
+  "input_sha256": {
+    "train": "6282d870d42b6f557dba82bcafb6b46a4bf05d8f869abee80600bf79795bf2c7",
+    "eval": "8dfb4ca809b0791cb5a0260b361949d2d450f8c1b0653cbb1228624c8c74260d"
+  },
+  "code_sha256": "ca58dc7032740d42c82ea395b95c9e24819c00baa06fd0a580b7613e54ed7849",
+  "limitations": [
+    "Deterministic player-only prediction; no ball forecast or tactic simulation",
+    "One held-out development match; no hyperparameter selection on this match",
+    "Overlapping windows and players are correlated; counts are not independent trials",
+    "Complete-window selection excludes occluded or substituted player tracks",
+    "Uses provider tracking; video detector and tracker are not implemented"
+  ]
+}

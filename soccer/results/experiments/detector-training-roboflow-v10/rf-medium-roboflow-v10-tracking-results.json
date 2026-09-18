@@ -1,0 +1,76 @@
+{
+  "schema": "detector-tracking-comparison/v1",
+  "manifest_sha256": "75200edcfe9851a5c68a68bfe36ef320755d90d33bd4ece98590c8d31df08795",
+  "predictions_sha256": "ebe5d912a7e3e0a29cae3aa52628c602240efcd1757801b0cb6f8b8750384b03",
+  "detection_report_sha256": "3eb7ba9db6fa5b18d77ee1eef2604509119b130eed25e4c0fe28cb92808aa670",
+  "tracker": "Existing TrackletAssociator, max_age_s=0.8, person class only, no appearance",
+  "tracker_code_sha256": "cc3273e08ccf12692507e291841d2e8d299d38987ad8516a4cfb0256660133a2",
+  "comparison_code_sha256": "ab812d67dc0f91a2686f7ee23fb28a9abf8dcd75872a259a556d4add0a0c759c",
+  "score_threshold": 0.25,
+  "trackeval_version": "1.0.dev1",
+  "trackeval_source": {
+    "url": "https://github.com/JonathonLuiten/TrackEval.git",
+    "vcs_info": {
+      "vcs": "git",
+      "commit_id": "12c8791b303e0a0b50f753af204249e622d0281a",
+      "requested_revision": "12c8791b303e0a0b50f753af204249e622d0281a"
+    }
+  },
+  "overall": {
+    "HOTA": 0.6607691094840478,
+    "DetA": 0.6619602722402718,
+    "AssA": 0.6656951897381834,
+    "LocA": 0.8254468180451267,
+    "IDF1": 0.7821690676814351,
+    "IDP": 0.7434890450599422,
+    "IDR": 0.8250946209427686
+  },
+  "by_sequence": {
+    "SNGS-021": {
+      "frames": 150,
+      "ground_truth_boxes": 2550,
+      "predicted_boxes": 2823,
+      "predicted_tracks": 44,
+      "HOTA": 0.7773057582970665,
+      "DetA": 0.753846341840493,
+      "AssA": 0.8062290997949244,
+      "LocA": 0.8669836574923603,
+      "IDF1": 0.8833054159687326,
+      "IDP": 0.8405951115834219,
+      "IDR": 0.9305882352941176
+    },
+    "SNGS-045": {
+      "frames": 150,
+      "ground_truth_boxes": 3248,
+      "predicted_boxes": 3684,
+      "predicted_tracks": 77,
+      "HOTA": 0.6278464332675809,
+      "DetA": 0.6505501383199512,
+      "AssA": 0.6063130348018672,
+      "LocA": 0.8141581525160972,
+      "IDF1": 0.7703404500865552,
+      "IDP": 0.7247557003257329,
+      "IDR": 0.8220443349753694
+    },
+    "SNGS-089": {
+      "frames": 150,
+      "ground_truth_boxes": 2921,
+      "predicted_boxes": 3169,
+      "predicted_tracks": 77,
+      "HOTA": 0.5780182266314058,
+      "DetA": 0.6065003014434923,
+      "AssA": 0.5517039326234251,
+      "LocA": 0.7982164529720963,
+      "IDF1": 0.7064039408866996,
+      "IDP": 0.6787630167245188,
+      "IDR": 0.7363916466963368
+    }
+  },
+  "limitations": [
+    "Three short validation sequences; not the full official benchmark.",
+    "Person roles collapsed equally for both detectors; no team or jersey inference.",
+    "Appearance disabled equally; not the original complete video pipeline.",
+    "Tracker resets at each source sequence; no cross-camera identity claim."
+  ],
+  "tracks_sha256": "5091f1d7b3f03ba04d45602ba376c409bd127ac800415faa205321c27180d304"
+}

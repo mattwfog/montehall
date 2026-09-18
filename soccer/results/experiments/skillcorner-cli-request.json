@@ -1,0 +1,10 @@
+{
+  "operation": "import",
+  "metadata": "artifacts/public-data/skillcorner/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/1886347/1886347_match.json",
+  "tracking": "artifacts/public-data/skillcorner/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/1886347/tracking-first-600.jsonl",
+  "events": "artifacts/public-data/skillcorner/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/1886347/1886347_dynamic_events.csv",
+  "phases": "artifacts/public-data/skillcorner/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/1886347/1886347_phases_of_play.csv",
+  "matches": "artifacts/public-data/skillcorner/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/matches.json",
+  "source_manifest": "artifacts/public-data/skillcorner/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/1886347/source-manifest-first-600.json",
+  "out": "artifacts/integrations/skillcorner/cli-game-1886347"
+}

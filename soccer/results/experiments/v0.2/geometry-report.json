@@ -1,0 +1,8 @@
+{
+  "benchmark": "synthetic camera, 1.5px noise and 6/32 corrupted landmarks",
+  "trials": 50,
+  "accepted": 50,
+  "median_holdout_projection_error_m": 0.10520934610080013,
+  "p95_holdout_projection_error_m": 0.24992025168314488,
+  "real_video_accuracy": "unmeasured: manually labeled image/pitch correspondences required"
+}

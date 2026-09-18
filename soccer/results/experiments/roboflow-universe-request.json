@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "api_key_env": "ROBOFLOW_API_KEY",
+  "out": "artifacts/public-data/roboflow",
+  "datasets": [
+    {"project": "roboflow-jvuqo/football-players-detection-3zvbc", "version": 10, "format": "coco"},
+    {"project": "roboflow-jvuqo/football-players-detection-3zvbc", "version": 13, "format": "coco"},
+    {"project": "roboflow-jvuqo/football-players-detection-3zvbc", "version": 20, "format": "coco"},
+    {"project": "roboflow-jvuqo/football-field-detection-f07vi", "version": 12, "format": "coco"},
+    {"project": "roboflow-jvuqo/football-field-detection-f07vi", "version": 18, "format": "coco"}
+  ]
+}

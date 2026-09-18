@@ -1,0 +1,822 @@
+{
+  "schema": "workflow-corpus-score/v1",
+  "preset": "rf-soccer",
+  "tag": "rf-soccer-e50-20260908",
+  "manifest_sha256": "e90cca3af1ce418c6a8102836ea5e918162608003c49cb6a0728ead8ca586c1a",
+  "ground_truth_sha256": "2c5fae7adc90f47f1f70b2d31dc15684f5aadfad90b49502268bc2e9854fd3f4",
+  "jobs_sha256": "10bd39d6c0a280f6d2092180f3df04e745fa70a88a01b7da27863dfc948d46d4",
+  "runs": {
+    "SNGS-022": {
+      "path": "artifacts/workflow-jobs/3284f49e486e4e450c1a7117b138c8aebbad60af39d02cfeffd8d39013c065eb/artifacts/run",
+      "report_sha256": "d222445b386e76d0b6e7ac96caa82f3ee3a4f4787f250c932a02a9dfa14b8102"
+    },
+    "SNGS-050": {
+      "path": "artifacts/workflow-jobs/bb82ed177b6741b00f35121178133ada1f719eb1f0ffee5f47d2b2fcda6f8bf8/artifacts/run",
+      "report_sha256": "63370babc73ce149e95b7d57f4b33d6ebcadb8cf86dc946b4cc3e47c67ffd2b6"
+    },
+    "SNGS-079": {
+      "path": "artifacts/workflow-jobs/bea21f87939552e23f371d55f5726a01c15b841a874a70aa862819d92ee54e13/artifacts/run",
+      "report_sha256": "54ee148dc71f5e1c44a1f2a4ce02c2c66052c9d553188082707970ce9eef2bc9"
+    },
+    "SNGS-093": {
+      "path": "artifacts/workflow-jobs/0d4f82f56f0eb30b73a0c5518c29f29ffc2bc9a5302aecf1967503152a2aa4fb/artifacts/run",
+      "report_sha256": "fa584d73c7d4f2534f0873a0e0263419ecb681da2db5685ef02fd663f1d108b1"
+    }
+  },
+  "results": {
+    "persons-ball-raw": {
+      "predictions_sha256": "ec6783931ba3e6f9e42ed59fe3760e1c9be4f45eedce98381ac8ce401fe54bdb",
+      "results_sha256": "7fb2a4848b72f7d83e5cd6502bae8acef74d34a198b563aee82f686d3d67ae2a",
+      "overall": {
+        "frames": 120,
+        "classes": {
+          "person": {
+            "gt": 2063,
+            "predictions": 2202,
+            "tp": 1751,
+            "fn": 312,
+            "fp": 451,
+            "ignored": 0,
+            "precision": 0.7951861943687557,
+            "recall": 0.8487639360155114,
+            "false_positives_per_frame": 3.7583333333333333,
+            "size_buckets": {
+              "small": {
+                "gt": 84,
+                "tp": 12,
+                "fn": 72,
+                "recall": 0.14285714285714285,
+                "unmatched_predicted_boxes": 49
+              },
+              "medium": {
+                "gt": 1769,
+                "tp": 1541,
+                "fn": 228,
+                "recall": 0.8711136235161108,
+                "unmatched_predicted_boxes": 394
+              },
+              "large": {
+                "gt": 210,
+                "tp": 198,
+                "fn": 12,
+                "recall": 0.9428571428571428,
+                "unmatched_predicted_boxes": 8
+              }
+            }
+          },
+          "ball": {
+            "gt": 120,
+            "predictions": 104,
+            "tp": 34,
+            "fn": 86,
+            "fp": 70,
+            "ignored": 0,
+            "precision": 0.3269230769230769,
+            "recall": 0.2833333333333333,
+            "false_positives_per_frame": 0.5833333333333334,
+            "size_buckets": {
+              "small": {
+                "gt": 120,
+                "tp": 34,
+                "fn": 86,
+                "recall": 0.2833333333333333,
+                "unmatched_predicted_boxes": 70
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              }
+            }
+          }
+        },
+        "ball_center": {
+          "gt": 120,
+          "predictions": 104,
+          "tp": 55,
+          "fn": 65,
+          "fp": 49,
+          "ignored": 0,
+          "precision": 0.5288461538461539,
+          "recall": 0.4583333333333333,
+          "false_positives_per_frame": 0.4083333333333333,
+          "size_buckets": {
+            "small": {
+              "gt": 120,
+              "tp": 55,
+              "fn": 65,
+              "recall": 0.4583333333333333,
+              "unmatched_predicted_boxes": 49
+            },
+            "medium": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null,
+              "unmatched_predicted_boxes": 0
+            },
+            "large": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null,
+              "unmatched_predicted_boxes": 0
+            }
+          },
+          "matched_center_error_px": {
+            "mean": 2.473658679861065,
+            "median": 1.9837930186811448,
+            "p95": 6.498545737304145
+          }
+        }
+      },
+      "by_sequence": {
+        "SNGS-022": {
+          "person": {
+            "gt": 276,
+            "predictions": 347,
+            "tp": 235,
+            "fn": 41,
+            "fp": 112,
+            "ignored": 0,
+            "precision": 0.6772334293948127,
+            "recall": 0.8514492753623188,
+            "false_positives_per_frame": 3.7333333333333334,
+            "size_buckets": {
+              "small": {
+                "gt": 1,
+                "tp": 1,
+                "fn": 0,
+                "recall": 1.0,
+                "unmatched_predicted_boxes": 10
+              },
+              "medium": {
+                "gt": 196,
+                "tp": 159,
+                "fn": 37,
+                "recall": 0.8112244897959183,
+                "unmatched_predicted_boxes": 99
+              },
+              "large": {
+                "gt": 79,
+                "tp": 75,
+                "fn": 4,
+                "recall": 0.9493670886075949,
+                "unmatched_predicted_boxes": 3
+              }
+            }
+          },
+          "ball": {
+            "gt": 30,
+            "predictions": 23,
+            "tp": 3,
+            "fn": 27,
+            "fp": 20,
+            "ignored": 0,
+            "precision": 0.13043478260869565,
+            "recall": 0.1,
+            "false_positives_per_frame": 0.6666666666666666,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 3,
+                "fn": 27,
+                "recall": 0.1,
+                "unmatched_predicted_boxes": 20
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              }
+            }
+          }
+        },
+        "SNGS-050": {
+          "person": {
+            "gt": 660,
+            "predictions": 715,
+            "tp": 617,
+            "fn": 43,
+            "fp": 98,
+            "ignored": 0,
+            "precision": 0.862937062937063,
+            "recall": 0.9348484848484848,
+            "false_positives_per_frame": 3.2666666666666666,
+            "size_buckets": {
+              "small": {
+                "gt": 3,
+                "tp": 3,
+                "fn": 0,
+                "recall": 1.0,
+                "unmatched_predicted_boxes": 17
+              },
+              "medium": {
+                "gt": 657,
+                "tp": 614,
+                "fn": 43,
+                "recall": 0.9345509893455098,
+                "unmatched_predicted_boxes": 81
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              }
+            }
+          },
+          "ball": {
+            "gt": 30,
+            "predictions": 32,
+            "tp": 1,
+            "fn": 29,
+            "fp": 31,
+            "ignored": 0,
+            "precision": 0.03125,
+            "recall": 0.03333333333333333,
+            "false_positives_per_frame": 1.0333333333333334,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 1,
+                "fn": 29,
+                "recall": 0.03333333333333333,
+                "unmatched_predicted_boxes": 31
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              }
+            }
+          }
+        },
+        "SNGS-079": {
+          "person": {
+            "gt": 561,
+            "predictions": 515,
+            "tp": 377,
+            "fn": 184,
+            "fp": 138,
+            "ignored": 0,
+            "precision": 0.7320388349514563,
+            "recall": 0.6720142602495544,
+            "false_positives_per_frame": 4.6,
+            "size_buckets": {
+              "small": {
+                "gt": 80,
+                "tp": 8,
+                "fn": 72,
+                "recall": 0.1,
+                "unmatched_predicted_boxes": 22
+              },
+              "medium": {
+                "gt": 481,
+                "tp": 369,
+                "fn": 112,
+                "recall": 0.7671517671517671,
+                "unmatched_predicted_boxes": 116
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              }
+            }
+          },
+          "ball": {
+            "gt": 30,
+            "predictions": 16,
+            "tp": 0,
+            "fn": 30,
+            "fp": 16,
+            "ignored": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "false_positives_per_frame": 0.5333333333333333,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 0,
+                "fn": 30,
+                "recall": 0.0,
+                "unmatched_predicted_boxes": 16
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              }
+            }
+          }
+        },
+        "SNGS-093": {
+          "person": {
+            "gt": 566,
+            "predictions": 625,
+            "tp": 522,
+            "fn": 44,
+            "fp": 103,
+            "ignored": 0,
+            "precision": 0.8352,
+            "recall": 0.9222614840989399,
+            "false_positives_per_frame": 3.433333333333333,
+            "size_buckets": {
+              "small": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              },
+              "medium": {
+                "gt": 435,
+                "tp": 399,
+                "fn": 36,
+                "recall": 0.9172413793103448,
+                "unmatched_predicted_boxes": 98
+              },
+              "large": {
+                "gt": 131,
+                "tp": 123,
+                "fn": 8,
+                "recall": 0.9389312977099237,
+                "unmatched_predicted_boxes": 5
+              }
+            }
+          },
+          "ball": {
+            "gt": 30,
+            "predictions": 33,
+            "tp": 30,
+            "fn": 0,
+            "fp": 3,
+            "ignored": 0,
+            "precision": 0.9090909090909091,
+            "recall": 1.0,
+            "false_positives_per_frame": 0.1,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 30,
+                "fn": 0,
+                "recall": 1.0,
+                "unmatched_predicted_boxes": 3
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null,
+                "unmatched_predicted_boxes": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "ball-confirmed": {
+      "predictions_sha256": "0ee54a56bed80e761f02735e3b444c6932f611451324b7bdce44b0cb31a0b986",
+      "results_sha256": "a1355996ee34b2ba4da24dfdbf6e84ce61853585e8acb8c7e93fee7a09503103",
+      "overall": {
+        "frames": 120,
+        "classes": null,
+        "ball_center": {
+          "gt": 120,
+          "predictions": 61,
+          "tp": 49,
+          "fn": 71,
+          "fp": 12,
+          "ignored": 0,
+          "precision": 0.8032786885245902,
+          "recall": 0.4083333333333333,
+          "false_positives_per_frame": 0.1,
+          "size_buckets": {
+            "small": {
+              "gt": 120,
+              "tp": 49,
+              "fn": 71,
+              "recall": 0.4083333333333333
+            },
+            "medium": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null
+            }
+          },
+          "matched_center_error_px": {
+            "mean": 2.342023562105236,
+            "median": 1.938549516011321,
+            "p95": 5.570641777590724
+          }
+        }
+      },
+      "by_sequence": {
+        "SNGS-022": {
+          "ball_center": {
+            "gt": 30,
+            "predictions": 8,
+            "tp": 7,
+            "fn": 23,
+            "fp": 1,
+            "ignored": 0,
+            "precision": 0.875,
+            "recall": 0.23333333333333334,
+            "false_positives_per_frame": 0.03333333333333333,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 7,
+                "fn": 23,
+                "recall": 0.23333333333333334
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              }
+            },
+            "matched_center_error_px": {
+              "mean": 3.98853229317092,
+              "median": 3.8394843311169087,
+              "p95": 8.667641790089064
+            }
+          }
+        },
+        "SNGS-050": {
+          "ball_center": {
+            "gt": 30,
+            "predictions": 11,
+            "tp": 0,
+            "fn": 30,
+            "fp": 11,
+            "ignored": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "false_positives_per_frame": 0.36666666666666664,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 0,
+                "fn": 30,
+                "recall": 0.0
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              }
+            },
+            "matched_center_error_px": {
+              "mean": null,
+              "median": null,
+              "p95": null
+            }
+          }
+        },
+        "SNGS-079": {
+          "ball_center": {
+            "gt": 30,
+            "predictions": 13,
+            "tp": 13,
+            "fn": 17,
+            "fp": 0,
+            "ignored": 0,
+            "precision": 1.0,
+            "recall": 0.43333333333333335,
+            "false_positives_per_frame": 0.0,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 13,
+                "fn": 17,
+                "recall": 0.43333333333333335
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              }
+            },
+            "matched_center_error_px": {
+              "mean": 3.462165319033454,
+              "median": 2.959185835146024,
+              "p95": 6.93183208120823
+            }
+          }
+        },
+        "SNGS-093": {
+          "ball_center": {
+            "gt": 30,
+            "predictions": 29,
+            "tp": 29,
+            "fn": 1,
+            "fp": 0,
+            "ignored": 0,
+            "precision": 1.0,
+            "recall": 0.9666666666666667,
+            "false_positives_per_frame": 0.0,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 29,
+                "fn": 1,
+                "recall": 0.9666666666666667
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              }
+            },
+            "matched_center_error_px": {
+              "mean": 1.4424579083974216,
+              "median": 1.3372395873572755,
+              "p95": 2.4139862683136095
+            }
+          }
+        }
+      }
+    },
+    "ball-estimated": {
+      "predictions_sha256": "c37b64b6eddfc7933db86c71e251fbf89424fcc341bd7cdc28bcbdaddc1f4758",
+      "results_sha256": "fe5d5d373a15c5a0ad61c53ff63f581fa8108d87cd97ce4509c3c7c566076e4e",
+      "overall": {
+        "frames": 120,
+        "classes": null,
+        "ball_center": {
+          "gt": 120,
+          "predictions": 33,
+          "tp": 8,
+          "fn": 112,
+          "fp": 25,
+          "ignored": 0,
+          "precision": 0.24242424242424243,
+          "recall": 0.06666666666666667,
+          "false_positives_per_frame": 0.20833333333333334,
+          "size_buckets": {
+            "small": {
+              "gt": 120,
+              "tp": 8,
+              "fn": 112,
+              "recall": 0.06666666666666667
+            },
+            "medium": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null
+            },
+            "large": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null
+            }
+          },
+          "matched_center_error_px": {
+            "mean": 4.342458819409333,
+            "median": 4.480814160190164,
+            "p95": 6.5177258560695375
+          }
+        }
+      },
+      "by_sequence": {
+        "SNGS-022": {
+          "ball_center": {
+            "gt": 30,
+            "predictions": 10,
+            "tp": 0,
+            "fn": 30,
+            "fp": 10,
+            "ignored": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "false_positives_per_frame": 0.3333333333333333,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 0,
+                "fn": 30,
+                "recall": 0.0
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              }
+            },
+            "matched_center_error_px": {
+              "mean": null,
+              "median": null,
+              "p95": null
+            }
+          }
+        },
+        "SNGS-050": {
+          "ball_center": {
+            "gt": 30,
+            "predictions": 15,
+            "tp": 0,
+            "fn": 30,
+            "fp": 15,
+            "ignored": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "false_positives_per_frame": 0.5,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 0,
+                "fn": 30,
+                "recall": 0.0
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              }
+            },
+            "matched_center_error_px": {
+              "mean": null,
+              "median": null,
+              "p95": null
+            }
+          }
+        },
+        "SNGS-079": {
+          "ball_center": {
+            "gt": 30,
+            "predictions": 7,
+            "tp": 7,
+            "fn": 23,
+            "fp": 0,
+            "ignored": 0,
+            "precision": 1.0,
+            "recall": 0.23333333333333334,
+            "false_positives_per_frame": 0.0,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 7,
+                "fn": 23,
+                "recall": 0.23333333333333334
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              }
+            },
+            "matched_center_error_px": {
+              "mean": 4.919801759444713,
+              "median": 4.590489426513582,
+              "p95": 6.5177258560695375
+            }
+          }
+        },
+        "SNGS-093": {
+          "ball_center": {
+            "gt": 30,
+            "predictions": 1,
+            "tp": 1,
+            "fn": 29,
+            "fp": 0,
+            "ignored": 0,
+            "precision": 1.0,
+            "recall": 0.03333333333333333,
+            "false_positives_per_frame": 0.0,
+            "size_buckets": {
+              "small": {
+                "gt": 30,
+                "tp": 1,
+                "fn": 29,
+                "recall": 0.03333333333333333
+              },
+              "medium": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              },
+              "large": {
+                "gt": 0,
+                "tp": 0,
+                "fn": 0,
+                "recall": null
+              }
+            },
+            "matched_center_error_px": {
+              "mean": 0.3010582391616751,
+              "median": 0.3010582391616751,
+              "p95": 0.3010582391616751
+            }
+          }
+        }
+      }
+    }
+  }
+}

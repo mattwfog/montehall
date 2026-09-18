@@ -1,0 +1,17 @@
+{
+  "evaluation_game": 2,
+  "events": 1236,
+  "attributed_events": 958,
+  "event_coverage": 0.7750809061488673,
+  "accuracy_when_attributed": 0.9102296450939458,
+  "all_events_correct_fraction": 0.7055016181229773,
+  "thresholds": {
+    "maximum_distance_m": 2.5,
+    "minimum_nearest_margin_m": 0.5
+  },
+  "limitations": [
+    "Uses provider positions and IDs, not video tracking",
+    "Nearest-at-start attribution is not continuous possession truth",
+    "Abstains during flight, missing ball, or ambiguous nearby players"
+  ]
+}

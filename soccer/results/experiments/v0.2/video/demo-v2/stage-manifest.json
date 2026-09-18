@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.2",
+  "clock": "source PTS seconds",
+  "primitive_rows": 2318,
+  "projected_rows": 2377,
+  "downstream_verdicts_in_primitive_stream": false,
+  "files": {
+    "ball_candidates.parquet": {
+      "sha256": "f97cb67b37f2acca25f73dab401382012578e9c05674ae47d685bd92b59ed484",
+      "rows": 99
+    },
+    "calibration.parquet": {
+      "sha256": "23b7f1e28fade238a6bb37715c219485e83e80dbfdfdea79c8b225a425a3c06e",
+      "rows": 100
+    },
+    "detections.parquet": {
+      "sha256": "409bc8254074a9907218f58e5570b4bc874c5e05407c0c4b301aa126ac7b3cad",
+      "rows": 2318
+    },
+    "frames.parquet": {
+      "sha256": "251b2a91b6b7c9820548437f734d9f15994f8f79afb762283807e4e37922373a",
+      "rows": 100
+    },
+    "landmarks.parquet": {
+      "sha256": "0ead813ce8aeec666aaab9c5089469219d74986b054072acae56b9960af451fd",
+      "rows": 1264
+    },
+    "primitive-evidence.parquet": {
+      "sha256": "c4d1b941dc6908946b8f3111cbf660e4c2a7406133e8e8cd6cc4e3c105266612",
+      "rows": 2318
+    },
+    "state.parquet": {
+      "sha256": "ca27a5cdc30d1c9b45a69535734d71055601f4a0c879f10a18f5df10ecebe95d",
+      "rows": 2384
+    },
+    "tactical-feature-audit.parquet": {
+      "sha256": "a63ef52b6b55cff338f47d62413f1395cd81b427545b025e3dc31286e78ea14f",
+      "rows": 108
+    }
+  },
+  "unknowns": [
+    "Named identity",
+    "Physical-position uncertainty",
+    "Ground-truth tracking accuracy"
+  ]
+}

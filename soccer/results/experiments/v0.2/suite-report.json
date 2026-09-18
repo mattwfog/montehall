@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.2",
+  "components": [
+    {
+      "component": "Video ingestion / detection / ball",
+      "status": "real video diagnostics",
+      "report": "video/demo-v2/report.json",
+      "limitation": "Labeled video accuracy still required",
+      "sha256": "cd630c75df9aa8ccdc575fd32e2a250df5c51858b2c35aa40d911729012b45c9"
+    },
+    {
+      "component": "Pitch calibration",
+      "status": "synthetic benchmark + video fits",
+      "report": "geometry-report.json",
+      "limitation": "Real metric accuracy unmeasured",
+      "sha256": "45c6f2a4185a00bf41d14d07db98a0c1ec631199772cf5330094171f28f400e6"
+    },
+    {
+      "component": "Tracklet / team association",
+      "status": "synthetic benchmark + video spot-check",
+      "report": "identity-report.json",
+      "limitation": "Long-term identity unvalidated",
+      "sha256": "90686fe6a9d130effccc3ca439ae367fb89e8c437a784ddb33828aefda2ede85"
+    },
+    {
+      "component": "Jersey OCR / named identity",
+      "status": "real crop experiment; abstains",
+      "report": "jersey/report.json",
+      "limitation": "No reliable jersey evidence or roster",
+      "sha256": "d2c505fc0eef71ead9501d4274c2867b23a2ecf46b6441e5023ae55dcf9c7bd9"
+    },
+    {
+      "component": "Video \u2192 tactical state",
+      "status": "domain-transfer diagnostics",
+      "report": "video/demo-v2/bridge-report.json",
+      "limitation": "Orientation and possession unresolved",
+      "sha256": "d37275f039cf266a9a6ed9ecba1337d45661717e7026d19557743b968b68ec26"
+    },
+    {
+      "component": "Missing-player reconstruction",
+      "status": "simulated crop benchmark",
+      "report": "uncertainty/report.json",
+      "limitation": "Perfect observed identities assumed",
+      "sha256": "495e691d0a2261deca41159467698c0616c16061d003b15e7c376562157e1104"
+    },
+    {
+      "component": "Progression / SHAP",
+      "status": "match-disjoint development result",
+      "report": "baseline-report.json",
+      "limitation": "Not causal value",
+      "sha256": "a58b15b7dff129122912a951d6d61f75ee3d9a694d475ab602f4b1f24aea5077"
+    },
+    {
+      "component": "Deterministic trajectories",
+      "status": "Spark GPU development result",
+      "report": "forecast-report.json",
+      "limitation": "Player motion only",
+      "sha256": "caf2a8fc7cef7f765e2ce351be298ac079f8a634546151e62228bca01a5dc2d0"
+    },
+    {
+      "component": "Probabilistic trajectories",
+      "status": "Spark GPU + half-disjoint calibration",
+      "report": "probabilistic/report.json",
+      "limitation": "Undercoverage on evaluation match",
+      "sha256": "b994b55b5248bf5df893401437134825504bc32b6c06ccfc8d200bb62b657f1b"
+    },
+    {
+      "component": "Ball trajectories",
+      "status": "Spark GPU development result",
+      "report": "ball/report.json",
+      "limitation": "One-second 2D motion on complete windows",
+      "sha256": "bf5c00360b870f39176ef15fdda3984fd66379cd3c71f29179a35832b5572362"
+    },
+    {
+      "component": "Event actor / possession hypotheses",
+      "status": "provider-event comparison",
+      "report": "actor/report.json",
+      "limitation": "Nearest actor is not continuous possession ground truth",
+      "sha256": "4de00458aa0f11575f3a1eec6c674278bb2b1512a7decdaae5fdc71336749730"
+    },
+    {
+      "component": "Tactics / pass options / set pieces / retrieval",
+      "status": "measured baselines and descriptive proxies",
+      "report": "tactics/report.json",
+      "limitation": "Next-action accuracy below majority baseline",
+      "sha256": "afb8ffd56fe0b5aefb2fd9b2b8caa9bce0c4ebabfb0c8538a9d9f5830f7c6ac0"
+    },
+    {
+      "component": "Manager brief / scenarios / lineup",
+      "status": "evidence-linked brief and bounded solver",
+      "report": "manager/report.json",
+      "limitation": "Real lineup advice abstains without context",
+      "sha256": "7148d4b7fa1768bc01bf0aaa6def8f25afc4a1018225eb530a1b29388cb69e3d"
+    },
+    {
+      "component": "Evidence contract / annotation evaluation",
+      "status": "validated stage artifacts",
+      "report": "video/demo-v2/stage-manifest.json",
+      "limitation": "Independent labels pending",
+      "sha256": "92be74e31c86c19a988f6fd31f60a2e7304f96bb0398e282ff5188e9386f99b9"
+    }
+  ],
+  "components_with_artifacts": 14,
+  "components_total": 14,
+  "elite_performance_established": false
+}

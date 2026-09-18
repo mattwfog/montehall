@@ -1,0 +1,35 @@
+{
+  "schema": "integration-verification/v1",
+  "date": "2026-09-07",
+  "suites": [
+    {"runtime": ".venv", "command": ".venv/bin/pytest -q", "passed": 66, "skipped": 13, "note": "Optional-library cases are exercised in their own environments"},
+    {"runtime": ".venvs/analysis", "modules": ["test_tracking_adapter.py", "test_provider_adapter.py", "test_action_value_adapter.py"], "passed": 9, "skipped": 0},
+    {"runtime": ".venvs/evaluation", "modules": ["test_annotation_adapter.py", "test_tracking_evaluation.py", "test_integrations_cli.py"], "passed": 19, "skipped": 0},
+    {"runtime": ".venvs/execution", "modules": ["test_execution_adapter.py"], "passed": 18, "skipped": 0}
+  ],
+  "suite_count_note": "Suites overlap; counts must not be summed as unique tests",
+  "lint": "ruff check and format check passed for src, tests and scripts",
+  "browser": {
+    "url": "http://127.0.0.1:7866",
+    "checks": [
+      "Final nine-tab workbench loads the existing harness run",
+      "Selected observation fills source interval 10.0 to 10.2 seconds",
+      "Missing reviewer and reason reject the correction",
+      "Real demo run remains at revision zero with no manufactured reviews",
+      "Evidence export produces a downloadable ZIP bundle"
+    ],
+    "successful_review_mutation": "Exercised with synthetic fixtures through HarnessPanel; no fake review applied to actual video"
+  },
+  "real_runs": {
+    "tracking": "tracker-comparison-report.json",
+    "actions": "statsbomb-xt-report.json",
+    "spark": "spark-execution-report.json",
+    "provider": "../../artifacts/integrations/final-cli-smoke/provider/report.json"
+  },
+  "limits": [
+    "No real reviewed video ground truth; no real-video HOTA or IDF1 claim",
+    "VAEP classifier untrained; xT decision quality unvalidated",
+    "CVAT exchange files generated; no CVAT server deployed",
+    "Prefect recoverable ad-hoc execution verified; no persistent service installed"
+  ]
+}

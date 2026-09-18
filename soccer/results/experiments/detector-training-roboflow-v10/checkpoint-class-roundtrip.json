@@ -1,0 +1,17 @@
+{
+  "checkpoint": "checkpoint_best_total.pth",
+  "sha256": "274b3d1c1829a6a595cb052e5b2b035f6253feeb7e537bd6a47a235977fbbeb6",
+  "class_names": [
+    "player",
+    "goalkeeper",
+    "referee",
+    "ball"
+  ],
+  "num_classes": 4,
+  "native_dataset_class_names": [
+    "player",
+    "goalkeeper",
+    "referee",
+    "ball"
+  ]
+}

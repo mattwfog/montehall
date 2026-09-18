@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "source_dir": "artifacts/video/demo-v2",
+  "frozen_detection_sha256": "409bc8254074a9907218f58e5570b4bc874c5e05407c0c4b301aa126ac7b3cad",
+  "frame_sha256": "251b2a91b6b7c9820548437f734d9f15994f8f79afb762283807e4e37922373a",
+  "max_age_s": 0.8,
+  "comparison": {
+    "soccerviz": {
+      "detections": 2318,
+      "tracklets": 43,
+      "singleton_tracklets": 14,
+      "median_detections_per_tracklet": 73.0,
+      "ground_truth_available": false,
+      "hota": null,
+      "idf1": null,
+      "interpretation": "Unlabeled continuity diagnostics; fewer tracks does not establish better accuracy",
+      "predictions_path": "artifacts/integrations/tracker-comparison-final/soccerviz/predictions.json",
+      "predictions_sha256": "0e47cb8e960d553bd445418e772b4bc3bc317200732028d12c616f78d584e76b"
+    },
+    "tracklab-ocsort": {
+      "detections": 2318,
+      "tracklets": 457,
+      "singleton_tracklets": 323,
+      "median_detections_per_tracklet": 1.0,
+      "ground_truth_available": false,
+      "hota": null,
+      "idf1": null,
+      "interpretation": "Unlabeled continuity diagnostics; fewer tracks does not establish better accuracy",
+      "predictions_path": "artifacts/integrations/tracker-comparison-final/tracklab-ocsort/predictions.json",
+      "predictions_sha256": "54303eb6e74e80d07f200a12f8b330980fd4f8f813f3c83a2908b92271af9383"
+    }
+  },
+  "limitations": [
+    "No reviewed identity labels; no accuracy ranking",
+    "Frozen artifacts do not contain shirt-color vectors, so both trackers run without appearance",
+    "Existing track-voted team hypotheses cleared; recompute team evidence before tactics"
+  ]
+}

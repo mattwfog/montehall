@@ -1,0 +1,1 @@
+"""soccerviz.cli.main."""

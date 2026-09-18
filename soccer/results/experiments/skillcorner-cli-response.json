@@ -1,0 +1,174 @@
+{
+  "schema": "skillcorner-ingestion/v1",
+  "match_id": 1886347,
+  "source": "https://github.com/SkillCorner/opendata",
+  "provenance": "provider_model_derived",
+  "human_ground_truth": false,
+  "loader": "native SkillCorner V3 JSONL and complete CSV columns",
+  "source_sha256": {
+    "metadata": "30c608e78663e9f490b3545479a3ce67b171f418c5133d5609cb249a2466abb2",
+    "tracking": "84179372af1c1d25144c0407da3fba47adfcca6249aac84a28c7d0245420780e",
+    "events": "62694d8a43c80415efd952ed22f9f8bbaf2b62e582d7e00330c7085a26652ed8",
+    "phases": "0e2df3f35b32ab41f2d667e8964c861268c34a38323d76817dbb59905d9799df",
+    "matches": "1df865586fe7c48313ee6784eb0a21ac5f3fa69ae20c965e8098254d5fa0142a"
+  },
+  "upstream": {
+    "repository": "https://github.com/SkillCorner/opendata",
+    "upstream_commit": "c1e17a0cc3e07e1774b52d929c1a0b85115143fc",
+    "max_frames": 600,
+    "sources": {
+      "matches": {
+        "url": "https://raw.githubusercontent.com/SkillCorner/opendata/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/data/matches.json",
+        "upstream_commit": "c1e17a0cc3e07e1774b52d929c1a0b85115143fc",
+        "sha256": "1df865586fe7c48313ee6784eb0a21ac5f3fa69ae20c965e8098254d5fa0142a",
+        "bytes_downloaded": 3323,
+        "complete_source": true,
+        "complete_json_lines": null
+      },
+      "metadata": {
+        "url": "https://raw.githubusercontent.com/SkillCorner/opendata/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/data/matches/1886347/1886347_match.json",
+        "upstream_commit": "c1e17a0cc3e07e1774b52d929c1a0b85115143fc",
+        "sha256": "30c608e78663e9f490b3545479a3ce67b171f418c5133d5609cb249a2466abb2",
+        "bytes_downloaded": 27541,
+        "complete_source": true,
+        "complete_json_lines": null
+      },
+      "events": {
+        "url": "https://raw.githubusercontent.com/SkillCorner/opendata/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/data/matches/1886347/1886347_dynamic_events.csv",
+        "upstream_commit": "c1e17a0cc3e07e1774b52d929c1a0b85115143fc",
+        "sha256": "62694d8a43c80415efd952ed22f9f8bbaf2b62e582d7e00330c7085a26652ed8",
+        "bytes_downloaded": 4613936,
+        "complete_source": true,
+        "complete_json_lines": null
+      },
+      "phases": {
+        "url": "https://raw.githubusercontent.com/SkillCorner/opendata/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/data/matches/1886347/1886347_phases_of_play.csv",
+        "upstream_commit": "c1e17a0cc3e07e1774b52d929c1a0b85115143fc",
+        "sha256": "0e2df3f35b32ab41f2d667e8964c861268c34a38323d76817dbb59905d9799df",
+        "bytes_downloaded": 123081,
+        "complete_source": true,
+        "complete_json_lines": null
+      },
+      "tracking_pointer": {
+        "url": "https://raw.githubusercontent.com/SkillCorner/opendata/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/data/matches/1886347/1886347_tracking_extrapolated.jsonl",
+        "upstream_commit": "c1e17a0cc3e07e1774b52d929c1a0b85115143fc",
+        "sha256": "b943363f22207e9ca60d0fd16b9a2336070364383c343cb4f4d819a2c57ebe63",
+        "bytes_downloaded": 133,
+        "complete_source": true,
+        "complete_json_lines": null
+      },
+      "tracking": {
+        "url": "https://media.githubusercontent.com/media/SkillCorner/opendata/c1e17a0cc3e07e1774b52d929c1a0b85115143fc/data/matches/1886347/1886347_tracking_extrapolated.jsonl",
+        "upstream_commit": "c1e17a0cc3e07e1774b52d929c1a0b85115143fc",
+        "sha256": "84179372af1c1d25144c0407da3fba47adfcca6249aac84a28c7d0245420780e",
+        "bytes_downloaded": 1131184,
+        "complete_source": false,
+        "complete_json_lines": 600,
+        "full_source_lfs_sha256": "3577e2803da95390f8b2f85d47829eb55fbbfee6211c94adc65db0dc78e46b41",
+        "full_source_bytes": 89280839
+      }
+    }
+  },
+  "game_metadata": {
+    "id": 1886347,
+    "date_time": "2024-11-30T04:00:00Z",
+    "home_team": {
+      "id": 4177,
+      "short_name": "Auckland FC"
+    },
+    "away_team": {
+      "id": 1805,
+      "short_name": "Newcastle"
+    },
+    "status": "closed",
+    "competition_id": 61,
+    "season_id": 95,
+    "competition_edition_id": 870,
+    "split": "train"
+  },
+  "split": "train",
+  "pitch_length_m": 104,
+  "pitch_width_m": 68,
+  "home_team_side_by_period": [
+    "right_to_left",
+    "left_to_right"
+  ],
+  "coordinate_policy": "Tracking retains centered source axes in actual metres. Dynamic events assume the possession team attacks left-to-right, except source attacking_side fields; no cross-table position join or 105x68 rescaling.",
+  "clock_policy": "Exact source timestamp and period retained, including nulls. frame/10 is a separate source frame clock, never substituted for match time. Event frame references are preserved.",
+  "frames": 600,
+  "frame_range": [
+    0,
+    599
+  ],
+  "observation_rows": 13580,
+  "registered_players": 36,
+  "observation_status_counts": {
+    "unavailable": 10,
+    "detected": 8572,
+    "extrapolated": 4998
+  },
+  "null_timestamp_frames": 10,
+  "frames_with_player_positions": 590,
+  "events": 5079,
+  "phases": 454,
+  "events_with_complete_tracking_interval": 65,
+  "descriptive_summaries": {
+    "event_type_counts": {
+      "passing_option": 2544,
+      "player_possession": 999,
+      "on_ball_engagement": 937,
+      "off_ball_run": 599
+    },
+    "off_ball_run_subtype_counts": {
+      "run_ahead_of_the_ball": 147,
+      "coming_short": 100,
+      "dropping_off": 77,
+      "support": 74,
+      "cross_receiver": 61,
+      "pulling_wide": 42,
+      "behind": 42,
+      "pulling_half_space": 21,
+      "underlap": 20,
+      "overlap": 15
+    },
+    "provider_in_possession_phase_seconds": {
+      "build_up": 572.7,
+      "chaotic": 314.8,
+      "create": 1332.6,
+      "direct": 73.2,
+      "finish": 628.5,
+      "quick_break": 22.4,
+      "set_play": 190.0,
+      "transition": 43.8
+    }
+  },
+  "limitations": [
+    "Provider tracking identities and coordinates contain errors; this is not perception ground truth.",
+    "Detected means the provider reported an on-screen detection; extrapolated coordinates remain explicitly separate.",
+    "Dynamic Events and phase labels are upstream derived outputs, not independent tactical validation.",
+    "Events may cover the full match while tracking is a bounded prefix; coverage flags prevent silently assuming overlap.",
+    "No interpolation, speed estimation, invented phase labels, or coaching-performance claims.",
+    "Native parser preserves V3 flags and empty frames; no lossy Kloppy conversion is forced."
+  ],
+  "outputs": {
+    "observations": "artifacts/integrations/skillcorner/cli-game-1886347/observations.parquet",
+    "frames": "artifacts/integrations/skillcorner/cli-game-1886347/frames.parquet",
+    "events": "artifacts/integrations/skillcorner/cli-game-1886347/events.parquet",
+    "phases": "artifacts/integrations/skillcorner/cli-game-1886347/phases.parquet"
+  },
+  "output_sha256": {
+    "observations": "2b22fcd6d5f97096b65b06c1c01e2c2faba9fdf84c11a8836b0d9b6eaa8e596b",
+    "frames": "45c3df1ac01ae3770a89b7fe9c46b076695160ee85360e6bff23e810ce19e708",
+    "events": "93091157040ff399b7a932d37261db8de0ea36a9d13605f85c64621785a7dd86",
+    "phases": "611d995749aa747fd1c38684afe7c8e6306e84510131dd7761235194f3490104",
+    "split_manifest": "509da51acd411ea8275d0429aa0f1d2263bd621cae028fc5c5ce1568e9aea06d"
+  },
+  "source_verification": "pinned_source_manifest_hashes_verified",
+  "event_missing_values": {
+    "x_start": 0,
+    "y_start": 0,
+    "x_end": 0,
+    "y_end": 0,
+    "is_player_possession_end_matched": 0
+  }
+}

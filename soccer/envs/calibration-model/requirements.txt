@@ -1,0 +1,9 @@
+# Isolated NGC26.01 worker; Docker constrains the preinstalled vendor torch wheels.
+PyYAML==6.0.3
+shapely==2.1.2
+matplotlib==3.10.8
+scipy==1.17.0
+Pillow==12.1.1
+opencv-python==4.12.0.88
+ultralytics==8.4.143
+ultralytics-thop==2.1.6

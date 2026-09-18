@@ -1,0 +1,537 @@
+{
+  "schema": "vision-benchmark-results/v1",
+  "purpose": "development",
+  "manifest_sha256": "75200edcfe9851a5c68a68bfe36ef320755d90d33bd4ece98590c8d31df08795",
+  "protocol_sha256": "418ddd95d60bf2150f23796c9d6cef2435e46d1b539351665a5f5a5fa7e14aca",
+  "supplemental_protocol_sha256": {
+    "center": "9c4cebd65b722be40eade7648fbb05d14d8af11c01567fc407ca1813966e73e2",
+    "coco": "1311deab02a6fad4fd9b25ec6b9417a6d3323c30df4d6ba625a1dceac7f58993"
+  },
+  "predictions_schema": "vision-predictions/v1",
+  "prediction_geometry": "bbox_xyxy",
+  "predictions_sha256": "ebe5d912a7e3e0a29cae3aa52628c602240efcd1757801b0cb6f8b8750384b03",
+  "ground_truth_sha256": "a773f90982616c1a6c61ff5b99b24d2c01174660d1c5f15e7a57ef2bfb2a4ee3",
+  "backend": {
+    "name": "rf-detr-medium",
+    "class_mode": "soccer",
+    "training_domain": "user-supplied soccer checkpoint",
+    "versions": {
+      "rfdetr": "1.10.1",
+      "transformers": "5.1.0",
+      "supervision": "0.29.0",
+      "torch": "2.10.0a0+a36e1d39eb.nv26.1.42222806",
+      "torchvision": "0.25.0a0+6b56de1c.nv26.1.42222806"
+    },
+    "checkpoints": {
+      "detector": {
+        "path": "/trained/checkpoint_best_total.pth",
+        "sha256": "274b3d1c1829a6a595cb052e5b2b035f6253feeb7e537bd6a47a235977fbbeb6",
+        "bytes": 133806681
+      }
+    },
+    "device": "cuda:0",
+    "resolution": 576,
+    "confidence_threshold": 0.01,
+    "input_color": "RGB (converted from BGR)",
+    "class_names": [
+      "player",
+      "goalkeeper",
+      "referee",
+      "ball"
+    ],
+    "precision": "float32",
+    "optimized": false,
+    "postprocess": "RF-DETR native predict",
+    "no_object_filter": {
+      "source_class": "__background__",
+      "policy": "Exclude only RF-DETR's documented no-object sentinel before soccer mapping",
+      "excluded_rows_including_warmup": 7905
+    }
+  },
+  "checkpoint_hashes": {
+    "detector": "274b3d1c1829a6a595cb052e5b2b035f6253feeb7e537bd6a47a235977fbbeb6"
+  },
+  "thresholds": {
+    "score_threshold": 0.25,
+    "iou_threshold": 0.5,
+    "ball_center_threshold_px": 10.0
+  },
+  "submitted_frames": 450,
+  "missing_prediction_frames": 0,
+  "image_hashes_verified": true,
+  "overall": {
+    "frames": 450,
+    "classes": {
+      "person": {
+        "gt": 8719,
+        "predictions": 9676,
+        "tp": 8264,
+        "fn": 455,
+        "fp": 1412,
+        "ignored": 0,
+        "precision": 0.854071930549814,
+        "recall": 0.9478151164124327,
+        "false_positives_per_frame": 3.137777777777778,
+        "size_buckets": {
+          "small": {
+            "gt": 157,
+            "tp": 96,
+            "fn": 61,
+            "recall": 0.6114649681528662,
+            "unmatched_predicted_boxes": 224
+          },
+          "medium": {
+            "gt": 7841,
+            "tp": 7451,
+            "fn": 390,
+            "recall": 0.9502614462441015,
+            "unmatched_predicted_boxes": 1177
+          },
+          "large": {
+            "gt": 721,
+            "tp": 717,
+            "fn": 4,
+            "recall": 0.9944521497919556,
+            "unmatched_predicted_boxes": 11
+          }
+        }
+      },
+      "ball": {
+        "gt": 432,
+        "predictions": 363,
+        "tp": 66,
+        "fn": 366,
+        "fp": 297,
+        "ignored": 0,
+        "precision": 0.18181818181818182,
+        "recall": 0.1527777777777778,
+        "false_positives_per_frame": 0.66,
+        "size_buckets": {
+          "small": {
+            "gt": 432,
+            "tp": 66,
+            "fn": 366,
+            "recall": 0.1527777777777778,
+            "unmatched_predicted_boxes": 296
+          },
+          "medium": {
+            "gt": 0,
+            "tp": 0,
+            "fn": 0,
+            "recall": null,
+            "unmatched_predicted_boxes": 1
+          },
+          "large": {
+            "gt": 0,
+            "tp": 0,
+            "fn": 0,
+            "recall": null,
+            "unmatched_predicted_boxes": 0
+          }
+        }
+      }
+    },
+    "ball_center": {
+      "gt": 432,
+      "predictions": 363,
+      "tp": 98,
+      "fn": 334,
+      "fp": 265,
+      "ignored": 0,
+      "precision": 0.2699724517906336,
+      "recall": 0.22685185185185186,
+      "false_positives_per_frame": 0.5888888888888889,
+      "size_buckets": {
+        "small": {
+          "gt": 432,
+          "tp": 98,
+          "fn": 334,
+          "recall": 0.22685185185185186,
+          "unmatched_predicted_boxes": 264
+        },
+        "medium": {
+          "gt": 0,
+          "tp": 0,
+          "fn": 0,
+          "recall": null,
+          "unmatched_predicted_boxes": 1
+        },
+        "large": {
+          "gt": 0,
+          "tp": 0,
+          "fn": 0,
+          "recall": null,
+          "unmatched_predicted_boxes": 0
+        }
+      },
+      "matched_center_error_px": {
+        "mean": 3.309623961204779,
+        "median": 2.7333463536382716,
+        "p95": 7.77905811329622
+      }
+    }
+  },
+  "by_sequence": {
+    "SNGS-021": {
+      "frames": 150,
+      "classes": {
+        "person": {
+          "gt": 2550,
+          "predictions": 2823,
+          "tp": 2537,
+          "fn": 13,
+          "fp": 286,
+          "ignored": 0,
+          "precision": 0.8986893375841304,
+          "recall": 0.9949019607843137,
+          "false_positives_per_frame": 1.9066666666666667,
+          "size_buckets": {
+            "small": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null,
+              "unmatched_predicted_boxes": 59
+            },
+            "medium": {
+              "gt": 2017,
+              "tp": 2004,
+              "fn": 13,
+              "recall": 0.993554784333168,
+              "unmatched_predicted_boxes": 227
+            },
+            "large": {
+              "gt": 533,
+              "tp": 533,
+              "fn": 0,
+              "recall": 1.0,
+              "unmatched_predicted_boxes": 0
+            }
+          }
+        },
+        "ball": {
+          "gt": 150,
+          "predictions": 122,
+          "tp": 0,
+          "fn": 150,
+          "fp": 122,
+          "ignored": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "false_positives_per_frame": 0.8133333333333334,
+          "size_buckets": {
+            "small": {
+              "gt": 150,
+              "tp": 0,
+              "fn": 150,
+              "recall": 0.0,
+              "unmatched_predicted_boxes": 122
+            },
+            "medium": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null,
+              "unmatched_predicted_boxes": 0
+            },
+            "large": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null,
+              "unmatched_predicted_boxes": 0
+            }
+          }
+        }
+      },
+      "ball_center": {
+        "gt": 150,
+        "predictions": 122,
+        "tp": 0,
+        "fn": 150,
+        "fp": 122,
+        "ignored": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "false_positives_per_frame": 0.8133333333333334,
+        "size_buckets": {
+          "small": {
+            "gt": 150,
+            "tp": 0,
+            "fn": 150,
+            "recall": 0.0,
+            "unmatched_predicted_boxes": 122
+          },
+          "medium": {
+            "gt": 0,
+            "tp": 0,
+            "fn": 0,
+            "recall": null,
+            "unmatched_predicted_boxes": 0
+          },
+          "large": {
+            "gt": 0,
+            "tp": 0,
+            "fn": 0,
+            "recall": null,
+            "unmatched_predicted_boxes": 0
+          }
+        },
+        "matched_center_error_px": {
+          "mean": null,
+          "median": null,
+          "p95": null
+        }
+      }
+    },
+    "SNGS-045": {
+      "frames": 150,
+      "classes": {
+        "person": {
+          "gt": 3248,
+          "predictions": 3684,
+          "tp": 3143,
+          "fn": 105,
+          "fp": 541,
+          "ignored": 0,
+          "precision": 0.8531487513572205,
+          "recall": 0.9676724137931034,
+          "false_positives_per_frame": 3.6066666666666665,
+          "size_buckets": {
+            "small": {
+              "gt": 69,
+              "tp": 32,
+              "fn": 37,
+              "recall": 0.463768115942029,
+              "unmatched_predicted_boxes": 88
+            },
+            "medium": {
+              "gt": 3129,
+              "tp": 3064,
+              "fn": 65,
+              "recall": 0.979226589964845,
+              "unmatched_predicted_boxes": 448
+            },
+            "large": {
+              "gt": 50,
+              "tp": 47,
+              "fn": 3,
+              "recall": 0.94,
+              "unmatched_predicted_boxes": 5
+            }
+          }
+        },
+        "ball": {
+          "gt": 142,
+          "predictions": 122,
+          "tp": 30,
+          "fn": 112,
+          "fp": 92,
+          "ignored": 0,
+          "precision": 0.2459016393442623,
+          "recall": 0.2112676056338028,
+          "false_positives_per_frame": 0.6133333333333333,
+          "size_buckets": {
+            "small": {
+              "gt": 142,
+              "tp": 30,
+              "fn": 112,
+              "recall": 0.2112676056338028,
+              "unmatched_predicted_boxes": 92
+            },
+            "medium": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null,
+              "unmatched_predicted_boxes": 0
+            },
+            "large": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null,
+              "unmatched_predicted_boxes": 0
+            }
+          }
+        }
+      },
+      "ball_center": {
+        "gt": 142,
+        "predictions": 122,
+        "tp": 48,
+        "fn": 94,
+        "fp": 74,
+        "ignored": 0,
+        "precision": 0.39344262295081966,
+        "recall": 0.3380281690140845,
+        "false_positives_per_frame": 0.49333333333333335,
+        "size_buckets": {
+          "small": {
+            "gt": 142,
+            "tp": 48,
+            "fn": 94,
+            "recall": 0.3380281690140845,
+            "unmatched_predicted_boxes": 74
+          },
+          "medium": {
+            "gt": 0,
+            "tp": 0,
+            "fn": 0,
+            "recall": null,
+            "unmatched_predicted_boxes": 0
+          },
+          "large": {
+            "gt": 0,
+            "tp": 0,
+            "fn": 0,
+            "recall": null,
+            "unmatched_predicted_boxes": 0
+          }
+        },
+        "matched_center_error_px": {
+          "mean": 3.4735006945051112,
+          "median": 3.3777449005638935,
+          "p95": 6.230601269559319
+        }
+      }
+    },
+    "SNGS-089": {
+      "frames": 150,
+      "classes": {
+        "person": {
+          "gt": 2921,
+          "predictions": 3169,
+          "tp": 2584,
+          "fn": 337,
+          "fp": 585,
+          "ignored": 0,
+          "precision": 0.8153991795519091,
+          "recall": 0.8846285518657994,
+          "false_positives_per_frame": 3.9,
+          "size_buckets": {
+            "small": {
+              "gt": 88,
+              "tp": 64,
+              "fn": 24,
+              "recall": 0.7272727272727273,
+              "unmatched_predicted_boxes": 77
+            },
+            "medium": {
+              "gt": 2695,
+              "tp": 2383,
+              "fn": 312,
+              "recall": 0.8842300556586271,
+              "unmatched_predicted_boxes": 502
+            },
+            "large": {
+              "gt": 138,
+              "tp": 137,
+              "fn": 1,
+              "recall": 0.9927536231884058,
+              "unmatched_predicted_boxes": 6
+            }
+          }
+        },
+        "ball": {
+          "gt": 140,
+          "predictions": 119,
+          "tp": 36,
+          "fn": 104,
+          "fp": 83,
+          "ignored": 0,
+          "precision": 0.3025210084033613,
+          "recall": 0.2571428571428571,
+          "false_positives_per_frame": 0.5533333333333333,
+          "size_buckets": {
+            "small": {
+              "gt": 140,
+              "tp": 36,
+              "fn": 104,
+              "recall": 0.2571428571428571,
+              "unmatched_predicted_boxes": 82
+            },
+            "medium": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null,
+              "unmatched_predicted_boxes": 1
+            },
+            "large": {
+              "gt": 0,
+              "tp": 0,
+              "fn": 0,
+              "recall": null,
+              "unmatched_predicted_boxes": 0
+            }
+          }
+        }
+      },
+      "ball_center": {
+        "gt": 140,
+        "predictions": 119,
+        "tp": 50,
+        "fn": 90,
+        "fp": 69,
+        "ignored": 0,
+        "precision": 0.42016806722689076,
+        "recall": 0.35714285714285715,
+        "false_positives_per_frame": 0.46,
+        "size_buckets": {
+          "small": {
+            "gt": 140,
+            "tp": 50,
+            "fn": 90,
+            "recall": 0.35714285714285715,
+            "unmatched_predicted_boxes": 68
+          },
+          "medium": {
+            "gt": 0,
+            "tp": 0,
+            "fn": 0,
+            "recall": null,
+            "unmatched_predicted_boxes": 1
+          },
+          "large": {
+            "gt": 0,
+            "tp": 0,
+            "fn": 0,
+            "recall": null,
+            "unmatched_predicted_boxes": 0
+          }
+        },
+        "matched_center_error_px": {
+          "mean": 3.15230229723646,
+          "median": 1.7465808977665676,
+          "p95": 8.802256040495553
+        }
+      }
+    }
+  },
+  "coco_bbox": {
+    "available": true,
+    "pycocotools_version": "2.0.11",
+    "candidate_score_floor": 0.01,
+    "score_truncated_input": true,
+    "map": 0.2634174670908761,
+    "ap50": 0.49538371945654747,
+    "ap75": 0.25130630544339594,
+    "by_class": {
+      "person": {
+        "map": 0.49813680277169997
+      },
+      "ball": {
+        "map": 0.028698131410052254
+      }
+    },
+    "protocol": "COCO bbox IoU .50:.95, maxDets100, all submitted scores; crowd ignore convention.",
+    "limitation": "AP uses submitted predictions only; candidates removed during inference cannot be recovered. Compare identical candidate score floors."
+  },
+  "limitations": [
+    "Validation development subset; not a final test or official split score.",
+    "Unsubmitted frames count as empty predictions.",
+    "Annotated-ball recall; no separate source ball-completeness flag.",
+    "Unknown public-pretraining overlap."
+  ]
+}

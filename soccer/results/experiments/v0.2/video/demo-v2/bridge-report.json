@@ -1,0 +1,13 @@
+{
+  "frames": 100,
+  "frames_with_usable_features": 27,
+  "orientation_scenarios_scored": 108,
+  "validated_tactical_predictions": 0,
+  "limitations": [
+    "Team identity, attacking direction and possession are unresolved",
+    "Both directions are scored for each anonymous team as a sensitivity audit",
+    "Ball detections and projected positions are not ground-truth validated",
+    "Classifier was trained on provider tracking; video-domain calibration is unmeasured",
+    "These scores do not drive recommendations or enter training"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "upstream_setup": "https://github.com/roboflow/sports/blob/42c80c06b6b65a7f89455b89fe31cdf4c38ba227/examples/soccer/setup.sh",
+  "files": {
+    "football-ball-detection.pt": {
+      "url": "https://drive.google.com/uc?id=1isw4wx-MK9h9LMr36VvIWlJD6ppUvw7V",
+      "sha256": "678fbad05134f19c5094cb8d273812ec9c6691228180d46832551ecf99ed2912",
+      "bytes": 136786099
+    },
+    "football-player-detection.pt": {
+      "url": "https://drive.google.com/uc?id=17PXFNlx-jI7VjVo_vQnB1sONjRyvoB-q",
+      "sha256": "75b09c377fbf9d0791d23f6cfb689f5aed6eaa43a6818bd1fb884cf7507fffaf",
+      "bytes": 136802409
+    },
+    "football-pitch-detection.pt": {
+      "url": "https://drive.google.com/uc?id=1Ma5Kt86tgpdjCTKfum79YMgNnSjcoOyf",
+      "sha256": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+      "bytes": 140212306
+    },
+    "2e57b9_0.mp4": {
+      "url": "https://drive.google.com/uc?id=19PGw55V8aA6GZu5-Aac5_9mCy3fNxmEf",
+      "sha256": "7788719b32b944e42d8f1024fb4802f681bc2053d6301218a5bff6705b549f96",
+      "bytes": 21096528
+    }
+  },
+  "purpose": "Local evaluation of the upstream public demo assets",
+  "terms": "Upstream code MIT; video/model terms are separate. No redistribution license asserted."
+}

@@ -1,0 +1,20 @@
+{
+  "job_id": "31f8bdc943c789c34d456f12866bb5f8dd438e8d8e2b887a56d5aed4a6d78210",
+  "prefect_version": "3.8.5",
+  "image": "sha256:950bb67171f6985147f3f83d3407676587efeb754e187637e8ef148b80f63363",
+  "status": "completed",
+  "fresh_process_resume_reused_execution": true,
+  "original_started_at": 1788821581.6414664,
+  "original_finished_at": 1788821589.2885704,
+  "output_files_verified": 10,
+  "completion_manifest_sha256": "00afa8c656577cadd4dec5df63443e483b24f77f918952fb1cd9dd121ea0d5d4",
+  "video_seconds_requested": 1,
+  "sample_hz": 2,
+  "frames": 2,
+  "detections": 48,
+  "limitations": [
+    "Short integration smoke; no perception accuracy claim",
+    "Long-running served deployment not started; entrypoint reload validated separately",
+    "Caller interruption recovery also tested through independent controller subprocesses"
+  ]
+}

@@ -1,0 +1,13 @@
+# Isolated CPU worker only; do not install into .venv or .venvs/analysis.
+# Tested on Python 3.12.12, macOS arm64. UnravelSports source license: MPL-2.0.
+unravelsports==1.2.1
+kloppy==3.19.0
+mplsoccer==1.8.0
+numpy==2.5.3
+pandas==3.0.5
+polars==1.44.1
+scipy==1.18.1
+pyarrow==25.0.1
+scikit-learn==1.9.0
+joblib==1.6.0
+pytest==9.1.1

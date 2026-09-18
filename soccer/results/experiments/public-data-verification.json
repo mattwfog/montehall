@@ -1,0 +1,45 @@
+{
+  "schema": "public-data-verification/v1",
+  "date": "2026-09-07",
+  "suites": [
+    {"runtime": ".venv", "scope": "full suite", "passed": 94, "skipped": 21},
+    {"runtime": ".venvs/analysis", "scope": "StatsBomb dataset, action training, tracking/provider/action-value adapters", "passed": 15, "skipped": 0},
+    {"runtime": ".venvs/soccernet", "scope": "SoccerNet adapter and evaluator", "passed": 13, "skipped": 0},
+    {"runtime": ".venv", "scope": "SkillCorner adapter, included in full suite", "passed": 11, "skipped": 0}
+  ],
+  "test_count_note": "Suites overlap and must not be summed as unique tests. Core skips cover optional-library tests exercised separately; unchanged optional execution/evaluation suites retain their prior verification.",
+  "lint": "ruff check and format check passed: 68 files",
+  "catalog": {"registered_experiments": 12, "all_explicit_registered_file_hashes_valid": true},
+  "browser": {
+    "url": "http://127.0.0.1:7866",
+    "checks": [
+      "Updated Runs & review opens actual SoccerNet inference run",
+      "Datasets & benchmarks lists real dataset/training/evaluation records",
+      "Tracker selection updates summary to HOTA 0.512 and IDF1 0.601",
+      "Oracle-box association record explicitly says it does not measure detector accuracy",
+      "Verify local artifacts returns valid=true for the selected benchmark"
+    ]
+  },
+  "actual_gpu_job": "2738f851cb3f985f8167d95e2e7a753189b4c2c81de5ae1baf25e46443ccce83",
+  "actual_harness_run": "621ddf62541d4676a7d5723f28a9ad5d",
+  "harness_evaluation_attachment": "93d0ec54c58ba619d2a2677d48599660c77d648324bbe8bf83eaa90640af8aee",
+  "results": {
+    "soccernet": "soccernet-tracker-comparison.json",
+    "conditional_gs_hota": "soccernet-conditional-gsr-evaluation.json",
+    "statsbomb_dataset": "statsbomb-expanded-dataset.json",
+    "statsbomb_training": "statsbomb-expanded-training.json",
+    "statsbomb_prior_exposure": "statsbomb-expanded-exposure-audit.json",
+    "skillcorner": ["skillcorner-1886347.json", "skillcorner-2011166.json"]
+  },
+  "limitations": [
+    "SoccerNet real inference covers one validation sequence sampled at 5Hz, not the full official split",
+    "Full-sample GS-HOTA unavailable because 250 predictions lack accepted pitch geometry",
+    "Conditional GS-HOTA selects 35/50 frames using model calibration success and is selection-biased",
+    "Unknown team and jersey attributes remain null; no target-label substitution",
+    "Detector training overlap with SoccerNet unknown",
+    "StatsBomb baseline uses current completed action features; five test matches offer limited positive outcomes",
+    "StatsBomb test match 3788742 was previously used in the project's xT smoke test",
+    "SkillCorner tracking is bounded while event files are complete; event coverage flags are required",
+    "Provider-derived tactical events do not establish coaching decision quality"
+  ]
+}

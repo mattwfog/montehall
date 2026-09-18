@@ -1,0 +1,16 @@
+# Isolated Python 3.12 worker, tested on macOS arm64; never install into core .venv.
+# TrackLab plugin is intentionally installed separately using --no-deps:
+# uv pip install --python WORKER_PYTHON --no-deps -r envs/tracklab-plugin/requirements.txt
+numpy==1.26.4
+pandas==2.3.3
+pyarrow==25.0.1
+scipy==1.17.1
+kloppy==3.19.0
+socceraction==1.5.3
+scikit-learn==1.9.0
+pandera==0.17.2
+multimethod==1.12
+filterpy==1.4.5
+lap==0.5.13
+torch==2.14.0
+pytest==9.1.1

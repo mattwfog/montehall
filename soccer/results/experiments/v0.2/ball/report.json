@@ -1,0 +1,28 @@
+{
+  "train_game": 1,
+  "evaluation_game": 2,
+  "history_s": 1,
+  "horizon_s": 1,
+  "epochs": 8,
+  "training_windows": 3283,
+  "evaluation_windows": 3074,
+  "gru": {
+    "ade_m": 2.6114718914031982,
+    "fde_1s_m": 4.738807201385498
+  },
+  "constant_velocity": {
+    "ade_m": 2.5355704598250517,
+    "fde_1s_m": 4.916616855627515
+  },
+  "stationary": {
+    "ade_m": 4.101284027099609,
+    "fde_1s_m": 6.678712844848633
+  },
+  "hardware": "NVIDIA GB10",
+  "seed": 73,
+  "limitations": [
+    "Complete observed ball windows only; excludes missing or unobserved ball segments",
+    "Two-dimensional deterministic motion; aerial height is unavailable",
+    "No counterfactual pass or next-touch guarantee"
+  ]
+}

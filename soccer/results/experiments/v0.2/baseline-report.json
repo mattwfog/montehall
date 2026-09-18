@@ -1,0 +1,49 @@
+{
+  "target": "advance_10m_within_5s",
+  "train_game": 1,
+  "eval_game": 2,
+  "training_samples": 579,
+  "evaluation_samples": 602,
+  "training_positive_rate": 0.41278065630397237,
+  "evaluation_positive_rate": 0.3953488372093023,
+  "random_forest": {
+    "brier": 0.2028474797176054,
+    "log_loss": 0.5926509692924684,
+    "roc_auc": 0.7299034998614831,
+    "average_precision": 0.6192294039265489
+  },
+  "training_prior_baseline": {
+    "brier": 0.23935200244350424,
+    "log_loss": 0.6717102347659938,
+    "roc_auc": 0.5,
+    "average_precision": 0.3953488372093023
+  },
+  "brier_difference_95pct_possession_bootstrap": [
+    -0.04967164232555423,
+    -0.022953097849731846
+  ],
+  "beats_prior_brier": true,
+  "source_revision": "e706dd506b360d69d9d123d5b8026e7294b13996",
+  "seed": 20260907,
+  "input_sha256": {
+    "train": "75ea446a1a376da5488bf1cc9bcd821b425d0d53d99fdb50862dfde631995aa0",
+    "eval": "48865fed07a62168bc132a1e3066f30cc7ceb2190c9f3dd653d798a57f6682c3"
+  },
+  "versions": {
+    "scikit-learn": "1.9.0",
+    "shap": "0.50.0",
+    "numpy": "2.5.3"
+  },
+  "limitations": [
+    "One training match and one held-out development match; not elite-level validation",
+    "Progression is a spatial surrogate, not possession value or causal tactical credit",
+    "Provider events supply possession intervals; not a video-only model",
+    "SHAP explains predictions relative to training background; dependent features share credit",
+    "Manual reviews are stored separately and never silently enter training/evaluation"
+  ],
+  "shap": {
+    "output": "positive-class probability",
+    "background": "100 training rows",
+    "additivity_verified": true
+  }
+}

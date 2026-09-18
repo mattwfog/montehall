@@ -1,0 +1,61 @@
+{
+  "sources": [
+    {
+      "game_id": 3788741,
+      "split": "train",
+      "home_team_id": 909,
+      "home_team": "Turkey",
+      "away_team": "Italy",
+      "event_url": "https://github.com/statsbomb/open-data/blob/master/data/events/3788741.json",
+      "event_sha256": "b9ddce6bee771bdb1f3564c9ac0552619257e412d0767939f1e7f1500ace3062",
+      "lineup_sha256": "5874bcd25f9c75b12ebcf14b1fa46507a349ac4de822ffe07f876d2edbe0cfca",
+      "spadl_sha256": "d58ecfba08ea91bfd82c081e5bab5d6b618a78a1231f9bb61bcd8ea9e8b67d1b",
+      "actions": 2206
+    },
+    {
+      "game_id": 3788742,
+      "split": "evaluate",
+      "home_team_id": 776,
+      "home_team": "Denmark",
+      "away_team": "Finland",
+      "event_url": "https://github.com/statsbomb/open-data/blob/master/data/events/3788742.json",
+      "event_sha256": "1408d239936cecb7235754f17d73717292eff58e8e09ad8d0552707925fdda08",
+      "lineup_sha256": "1704a8eee9edd5fbb3f978a217628274f77060a429f81528c48ed8c306e0a587",
+      "spadl_sha256": "879f8951052484b118a7204b84d4207802eaace16d3b35d2b5c438224b83438c",
+      "actions": 1953
+    }
+  ],
+  "report": {
+    "schema_version": 1,
+    "socceraction_version": "1.5.3",
+    "data_kind": "observed",
+    "orientation": "attacking_left_to_right",
+    "source_sha256": {
+      "train": "d58ecfba08ea91bfd82c081e5bab5d6b618a78a1231f9bb61bcd8ea9e8b67d1b",
+      "evaluate": "879f8951052484b118a7204b84d4207802eaace16d3b35d2b5c438224b83438c"
+    },
+    "training_game_ids": [
+      "3788741"
+    ],
+    "evaluation_game_ids": [
+      "3788742"
+    ],
+    "training_actions": 2206,
+    "evaluation_actions": 1953,
+    "rated_successful_moves": 1476,
+    "xT_grid": [
+      16,
+      12
+    ],
+    "vaep_status": "untrained",
+    "real_world_value_accuracy": null,
+    "limitations": [
+      "xT estimates action value; fit/rate success is not an accuracy measurement",
+      "xT leaves non-successful-movement actions unrated according to upstream semantics",
+      "VAEP features and future-outcome labels are separate artifacts; no classifier trained here",
+      "Metrica CSV events are not a supported socceraction Kloppy conversion provider; no guessed mapping"
+    ],
+    "model_sha256": "4f4db1db771ef4c764a2a8700f787680d9d22b7914a0447f0c16d37f5521a059"
+  },
+  "limitation": "One training match and one held-out match exercise the real library. This is not sufficient training evidence or decision-quality validation."
+}

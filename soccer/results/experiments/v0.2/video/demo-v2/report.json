@@ -1,0 +1,43 @@
+{
+  "source_sha256": "7788719b32b944e42d8f1024fb4802f681bc2053d6301218a5bff6705b549f96",
+  "model_sha256": {
+    "football-player-detection.pt": "75b09c377fbf9d0791d23f6cfb689f5aed6eaa43a6818bd1fb884cf7507fffaf",
+    "football-pitch-detection.pt": "28f68f7c4056d6d9b137efd2e7ab5f3c494039380c63831649126ced25628b36",
+    "football-ball-detection.pt": "678fbad05134f19c5094cb8d273812ec9c6691228180d46832551ecf99ed2912"
+  },
+  "sample_hz": 5,
+  "frames": 100,
+  "span_s": 19.8,
+  "detections": 2318,
+  "anonymous_tracklets": 44,
+  "role_counts": {
+    "player": 2026,
+    "referee": 251,
+    "goalkeeper": 41
+  },
+  "team_assignment_coverage": 0.8390854184641933,
+  "frames_with_ball_candidate": 66,
+  "accepted_calibration_frames": 100,
+  "cuts_detected": 0,
+  "elapsed_s": 44.63671609386802,
+  "versions": {
+    "ultralytics": "8.4.143",
+    "av": "16.1.0",
+    "numpy": "2.1.0"
+  },
+  "accuracy": {
+    "detection_map": null,
+    "tracking_idf1": null,
+    "team_accuracy": null,
+    "pitch_position_error_m": null,
+    "ball_precision": null
+  },
+  "limitations": [
+    "Inference diagnostics only; no labeled video ground truth yet",
+    "Team colors are anonymous clusters, not identified home/away teams",
+    "Tracklet continuity is local image-space association and resets at detected cuts",
+    "Pitch dimensions assumed 105x68; residuals measure model self-consistency, not true accuracy",
+    "Aerial ball projection violates the ground-plane assumption",
+    "Jersey OCR and named-player identity abstain until evidence exists"
+  ]
+}

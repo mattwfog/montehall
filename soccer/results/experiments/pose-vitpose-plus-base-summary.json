@@ -1,0 +1,62 @@
+{
+  "schema": "pose-summary/v1",
+  "kind": "sanity_rates_not_accuracy",
+  "predictions_sha256": "b7f29eb61dc25c7aa7bf9925ed75820e4247dfd0406074a46cc30960c9959ffd",
+  "backend": "vitpose-plus-base",
+  "min_score": 0.3,
+  "frames": 450,
+  "people": 9388,
+  "people_by_role": {
+    "player": 8882,
+    "referee": 503,
+    "goalkeeper": 3
+  },
+  "keypoints_inside_box_rate": 0.9437454572796311,
+  "box_margin_fraction": 0.1,
+  "people_with_confident_foot_rate": 0.9295909671921602,
+  "ankles_below_hips_rate_when_confident": 0.9998784933171324,
+  "mean_score_by_keypoint": {
+    "nose": 0.7966664951603878,
+    "left_eye": 0.7924477634203105,
+    "right_eye": 0.7982564210156824,
+    "left_ear": 0.7891415694965739,
+    "right_ear": 0.7889253105007451,
+    "left_shoulder": 0.8034174119216421,
+    "right_shoulder": 0.8102594380359274,
+    "left_elbow": 0.7442110243000838,
+    "right_elbow": 0.7666191842547262,
+    "left_wrist": 0.7020732998749948,
+    "right_wrist": 0.7253705409905445,
+    "left_hip": 0.7446389008068087,
+    "right_hip": 0.73830043480626,
+    "left_knee": 0.7648788901827841,
+    "right_knee": 0.7662105360218674,
+    "left_ankle": 0.7387656217078274,
+    "right_ankle": 0.7437515683875617
+  },
+  "confident_rate_by_keypoint": {
+    "nose": 0.9190455901150405,
+    "left_eye": 0.9187260332339157,
+    "right_eye": 0.9187260332339157,
+    "left_ear": 0.9184064763527908,
+    "right_ear": 0.9210694503621645,
+    "left_shoulder": 0.9282062207072859,
+    "right_shoulder": 0.9333191308052834,
+    "left_elbow": 0.931827865360034,
+    "right_elbow": 0.9467405198125266,
+    "left_wrist": 0.9157435023434172,
+    "right_wrist": 0.9382190029825309,
+    "left_hip": 0.9554750745632723,
+    "right_hip": 0.9569663400085215,
+    "left_knee": 0.9500426075841499,
+    "right_knee": 0.9502556455048998,
+    "left_ankle": 0.918086919471666,
+    "right_ankle": 0.9191521090754154
+  },
+  "limitations": [
+    "No keypoint ground truth in the frozen benchmark; rates check plausibility only",
+    "Boxes are detector predictions, so pose errors include detector box errors",
+    "Heatmap peak scores are uncalibrated; the score floor is fixed, not tuned",
+    "No temporal smoothing, no identity, no pitch projection in this worker"
+  ]
+}

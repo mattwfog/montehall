@@ -1,0 +1,12 @@
+# Minimal inference dependencies; preserve NGC torch and torchvision with constraints.
+# The upstream model, config, dataset and validation transforms are imported directly.
+timm==1.0.22
+albumentations==1.4.24
+pydantic>=2.7,<3
+PyYAML>=6,<7
+numpy>=1.26,<3
+pandas>=2.2,<3
+opencv-python-headless>=4.10,<5
+Pillow>=10,<13
+scipy>=1.14,<2
+

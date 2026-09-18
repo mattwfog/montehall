@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "out": "artifacts/public-data/roboflow",
+  "datasets": [
+    {
+      "project_id": "roboflow-jvuqo/football-players-detection-3zvbc",
+      "project_type": "object-detection",
+      "license": "CC BY 4.0",
+      "public": true,
+      "project_images": 372,
+      "classes": {
+        "ball": 396,
+        "goalkeeper": 311,
+        "referee": 937,
+        "player": 12063
+      },
+      "version_id": "roboflow-jvuqo/football-players-detection-3zvbc/10",
+      "version_name": "2024-07-22 7:08pm",
+      "version_created": 1721675308.423,
+      "version_images": 312,
+      "splits": {
+        "valid": 43,
+        "test": 19,
+        "train": 250
+      },
+      "preprocessing": {},
+      "augmentation": {},
+      "format": "coco",
+      "export_link": "https://app.roboflow.com/ds/o7TSDwEONb?key=REDACTED",
+      "export_size_mb": 71.794489,
+      "archive": "artifacts/public-data/roboflow/football-players-detection-3zvbc-v10-coco.zip",
+      "archive_sha256": "97c4a72acc8b7877857cc1d88a36160461ef1d819343d4a4ad8ac20fbdf4fde8",
+      "archive_bytes": 71794489,
+      "folder": "artifacts/public-data/roboflow/football-players-detection-3zvbc-v10-coco",
+      "extracted": {
+        "images": 312,
+        "label_files": 5,
+        "images_by_split": {
+          "test": 19,
+          "train": 250,
+          "valid": 43
+        }
+      }
+    },
+    {
+      "project_id": "roboflow-jvuqo/football-players-detection-3zvbc",
+      "project_type": "object-detection",
+      "license": "CC BY 4.0",
+      "public": true,
+      "project_images": 372,
+      "classes": {
+        "ball": 396,
+        "goalkeeper": 311,
+        "referee": 937,
+        "player": 12063
+      },
+      "version_id": "roboflow-jvuqo/football-players-detection-3zvbc/13",
+      "version_name": "2025-03-27 1:20pm",
+      "version_created": 1743078006.487,
+      "version_images": 372,
+      "splits": {
+        "valid": 49,
+        "test": 25,
+        "train": 298
+      },
+      "preprocessing": {
+        "resize": {
+          "format": "Stretch to",
+          "width": "1280",
+          "enabled": true,
+          "height": "1280"
+        }
+      },
+      "augmentation": {},
+      "format": "coco",
+      "export_link": "https://app.roboflow.com/ds/szJLIiDY5g?key=REDACTED",
+      "export_size_mb": 67.260182,
+      "archive": "artifacts/public-data/roboflow/football-players-detection-3zvbc-v13-coco.zip",
+      "archive_sha256": "8c0274ab10f748fdba7bc1cbfdfd6205dae62fa10ff5e20f367ca18d684fb534",
+      "archive_bytes": 67260182,
+      "folder": "artifacts/public-data/roboflow/football-players-detection-3zvbc-v13-coco",
+      "extracted": {
+        "images": 372,
+        "label_files": 5,
+        "images_by_split": {
+          "test": 25,
+          "train": 298,
+          "valid": 49
+        }
+      }
+    },
+    {
+      "project_id": "roboflow-jvuqo/football-players-detection-3zvbc",
+      "project_type": "object-detection",
+      "license": "CC BY 4.0",
+      "public": true,
+      "project_images": 372,
+      "classes": {
+        "ball": 396,
+        "goalkeeper": 311,
+        "referee": 937,
+        "player": 12063
+      },
+      "version_id": "roboflow-jvuqo/football-players-detection-3zvbc/20",
+      "version_name": "rf-detr-m",
+      "version_created": 1754081150.722,
+      "version_images": 372,
+      "splits": {
+        "valid": 49,
+        "test": 25,
+        "train": 298
+      },
+      "preprocessing": {
+        "auto-orient": {
+          "enabled": true
+        },
+        "resize": {
+          "enabled": true,
+          "format": "Stretch to",
+          "width": "576",
+          "height": "576"
+        }
+      },
+      "augmentation": {},
+      "format": "coco",
+      "export_link": "https://app.roboflow.com/ds/u8QGyP686k?key=REDACTED",
+      "export_size_mb": 19.566417,
+      "archive": "artifacts/public-data/roboflow/football-players-detection-3zvbc-v20-coco.zip",
+      "archive_sha256": "df449b033b75b44b876a69b41a31e34e57d45aea4dc67fd71864bc2cc069057c",
+      "archive_bytes": 19566417,
+      "folder": "artifacts/public-data/roboflow/football-players-detection-3zvbc-v20-coco",
+      "extracted": {
+        "images": 372,
+        "label_files": 5,
+        "images_by_split": {
+          "test": 25,
+          "train": 298,
+          "valid": 49
+        }
+      }
+    },
+    {
+      "project_id": "roboflow-jvuqo/football-field-detection-f07vi",
+      "project_type": "keypoint-detection",
+      "license": "CC BY 4.0",
+      "public": true,
+      "project_images": 317,
+      "classes": {
+        "pitch": 317
+      },
+      "version_id": "roboflow-jvuqo/football-field-detection-f07vi/12",
+      "version_name": "2024-07-23 4:18pm",
+      "version_created": 1721751506.842,
+      "version_images": 276,
+      "splits": {
+        "valid": 30,
+        "test": 24,
+        "train": 222
+      },
+      "preprocessing": {
+        "auto-orient": {
+          "enabled": true
+        }
+      },
+      "augmentation": {},
+      "format": "coco",
+      "export_link": "https://app.roboflow.com/ds/wOfZiG9S10?key=REDACTED",
+      "export_size_mb": 67.267573,
+      "archive": "artifacts/public-data/roboflow/football-field-detection-f07vi-v12-coco.zip",
+      "archive_sha256": "29a44ee473c1087945c0e966810774f22a6bdd74e5b94599264cd09429673d25",
+      "archive_bytes": 67267573,
+      "folder": "artifacts/public-data/roboflow/football-field-detection-f07vi-v12-coco",
+      "extracted": {
+        "images": 276,
+        "label_files": 5,
+        "images_by_split": {
+          "test": 24,
+          "train": 222,
+          "valid": 30
+        }
+      }
+    },
+    {
+      "project_id": "roboflow-jvuqo/football-field-detection-f07vi",
+      "project_type": "keypoint-detection",
+      "license": "CC BY 4.0",
+      "public": true,
+      "project_images": 317,
+      "classes": {
+        "pitch": 317
+      },
+      "version_id": "roboflow-jvuqo/football-field-detection-f07vi/18",
+      "version_name": "2026-06-17 12:59am",
+      "version_created": 1781689948.54,
+      "version_images": 317,
+      "splits": {
+        "valid": 34,
+        "test": 28,
+        "train": 255
+      },
+      "preprocessing": {
+        "auto-orient": {
+          "enabled": true
+        },
+        "resize": {
+          "enabled": true,
+          "format": "Stretch to",
+          "width": "960",
+          "height": "960"
+        }
+      },
+      "augmentation": {},
+      "format": "coco",
+      "export_link": "https://app.roboflow.com/ds/FK51eSjhUo?key=REDACTED",
+      "export_size_mb": 40.438025,
+      "archive": "artifacts/public-data/roboflow/football-field-detection-f07vi-v18-coco.zip",
+      "archive_sha256": "15151e603eea535f7c3e722796c107265e58102cec180e97369f2745eb25f81a",
+      "archive_bytes": 40438025,
+      "folder": "artifacts/public-data/roboflow/football-field-detection-f07vi-v18-coco",
+      "extracted": {
+        "images": 317,
+        "label_files": 5,
+        "images_by_split": {
+          "test": 28,
+          "train": 255,
+          "valid": 34
+        }
+      }
+    }
+  ]
+}

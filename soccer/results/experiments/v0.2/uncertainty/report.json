@@ -1,0 +1,37 @@
+{
+  "benchmark": "simulated 55x45m broadcast viewport on provider tracking; causal camera follows observed ball",
+  "calibration_game": 1,
+  "evaluation_game": 2,
+  "max_estimation_age_s": 3,
+  "train_coverage": {
+    "hidden_observations": 136335,
+    "estimated_hidden_observations": 29760,
+    "hidden_coverage_within_3s_ttl": 0.21828584002640555
+  },
+  "evaluation_coverage": {
+    "hidden_observations": 129892,
+    "estimated_hidden_observations": 27986,
+    "hidden_coverage_within_3s_ttl": 0.21545591722353954
+  },
+  "last_seen_mae_m": 2.798854150145864,
+  "velocity_mae_m": 0.9483965822523087,
+  "velocity_p90_error_m": 2.43281090259552,
+  "calibration_radius_by_age_second_m": {
+    "1": 0.5378708839416504,
+    "2": 1.9687749147415161,
+    "3": 3.944795608520508
+  },
+  "evaluation_empirical_90_coverage": 0.8999857071392839,
+  "control_grid_mae_by_method": {
+    "last_seen": 0.1148727520088308,
+    "velocity": 0.11206179223206444,
+    "visible_only": 0.1306776835333572
+  },
+  "limitations": [
+    "Simulated visibility with perfect observed tracking and known identities",
+    "Estimates expire after 3s; unseen players remain unknown",
+    "Radii are empirical error quantiles from game 1, not guaranteed confidence bounds",
+    "Timestamps and players are correlated; no independent-sample claim",
+    "Nearest-distance control proxy is not calibrated pitch control"
+  ]
+}

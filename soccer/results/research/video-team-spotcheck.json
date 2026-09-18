@@ -1,0 +1,15 @@
+{
+  "source_sha256": "7788719b32b944e42d8f1024fb4802f681bc2053d6301218a5bff6705b549f96",
+  "frame_id": 50,
+  "timestamp_s": 10.0,
+  "annotation_source": "assistant visual review of original and annotated demo frame",
+  "review_status": "provisional; needs independent human review",
+  "selection": "development frame selected after observing a team/track mismatch; not a held-out sample",
+  "label_scope": "visible uniform color conditional on the model's existing player boxes; excludes referees",
+  "dark_uniform_detection_ids": ["f50-d2", "f50-d6", "f50-d7", "f50-d8", "f50-d11", "f50-d13", "f50-d14", "f50-d17", "f50-d18", "f50-d20"],
+  "white_uniform_detection_ids": ["f50-d0", "f50-d1", "f50-d3", "f50-d4", "f50-d5", "f50-d9", "f50-d10", "f50-d12", "f50-d15", "f50-d19"],
+  "cluster_mapping": {"dark": 0, "white": 1},
+  "v1_uniform_agreement": "18/20",
+  "v2_uniform_agreement": "20/20",
+  "interpretation": "The appearance gate fixes the two inspected cross-team associations. This does not measure full-clip tracking accuracy or named identity."
+}
