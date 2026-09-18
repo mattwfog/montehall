@@ -148,6 +148,23 @@ def _offense_entities(trace: dict) -> list[int]:
     return seen
 
 
+def structural_anomalies(trace: dict) -> list[str]:
+    """Contradictions that are computable from the trace are found in code, not
+    asked of a model. (A live probe on 2026-09-18 showed why: given a made shot
+    in a possession where only the defense ever controlled the ball, the model's
+    self-contradiction judgment came back at 0.11.)"""
+    found: list[str] = []
+    offense = trace.get("offense_team_cluster")
+    controls = trace.get("ball_controls") or []
+    made = [s for s in trace.get("shot_events") or [] if s.get("made")]
+    if made and offense is not None and controls:
+        if not any(c.get("team") == offense for c in controls):
+            found.append("made_shot_without_offense_control")
+    if made and not controls:
+        found.append("made_shot_without_any_ball_control")
+    return found
+
+
 def jev_questions(trace: dict) -> tuple[dict, dict[str, dict]]:
     """State and typed questions for one possession, as plain dicts.
 
@@ -237,7 +254,8 @@ def compose_jev_verdict(trace: dict, answers: dict[str, dict]) -> dict:
         "scorer_entity": scorer,
         "assist_entity": assist,
         "confidence": probabilities[outcome],
-        "anomalies": ["trace_self_contradiction"] if p_anomaly >= ANOMALY_MIN_P else [],
+        "anomalies": structural_anomalies(trace)
+        + (["trace_self_contradiction"] if p_anomaly >= ANOMALY_MIN_P else []),
         "rationale": None,
         "outcome_probabilities": probabilities,
     }

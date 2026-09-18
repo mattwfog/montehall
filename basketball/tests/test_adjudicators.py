@@ -115,6 +115,22 @@ def test_anomaly_threshold():
     assert adj.compose_jev_verdict(_trace(), _answers(MADE, anomaly=0.2))["anomalies"] == []
 
 
+def test_made_shot_with_only_defensive_control_is_flagged_in_code():
+    trace = _trace(
+        ball_controls=[{"ts_s": 101.0, "entity": 9, "team": 1, "court_x": 30.0, "court_y": 20.0}],
+        passes=[],
+    )
+    assert adj.structural_anomalies(trace) == ["made_shot_without_offense_control"]
+    # the flag does not depend on the model's own contradiction judgment
+    verdict = adj.compose_jev_verdict(trace, _answers(MADE, anomaly=0.05))
+    assert verdict["anomalies"] == ["made_shot_without_offense_control"]
+
+
+def test_consistent_trace_has_no_structural_anomaly():
+    assert adj.structural_anomalies(_trace()) == []
+    assert adj.structural_anomalies(_trace(shot_events=[], ball_controls=[])) == []
+
+
 class _JevStub:
     def __init__(self, answers):
         self.answers, self.calls = answers, 0

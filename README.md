@@ -55,7 +55,18 @@ backend's confidence (expected calibration error, Brier score, reliability bins,
 precision-at-coverage), and `python -m montehall_cv.harness.compare` runs backends
 side by side on the same traces against truth no model produced. The backends and
 the scoring are tested, including a round trip through the real TypeSafe client
-with the HTTP transport mocked. A scored comparison on real games is not in the
+with the HTTP transport mocked.
+
+A live probe ([`scripts/jev_probe.py`](basketball/scripts/jev_probe.py), six hand-built
+traces, `jev-1.13.0`, 2026-09-18) is a behaviour check, not a benchmark. The model
+answered all four questions for a possession in about 0.4 s and roughly 1,000 input
+tokens, and its probabilities were graded rather than saturated: a clean make 1.00,
+a miss followed by defensive control 0.98, a no-shot change of possession 0.81, and
+a one-sample trace came back `unclear` at 0.64, so the verdict abstained. It also
+failed one case: given a made shot in a possession where only the defense ever held
+the ball, its self-contradiction judgment was 0.13. That contradiction is computable,
+so it is now detected in code (`structural_anomalies`) and the model is only asked
+for what code cannot decide. A scored comparison on real games is not in the
 repository yet.
 
 ## Running the tests
