@@ -1,7 +1,7 @@
 [project]
 name = "montehall-cv"
 version = "0.1.0"
-description = "Montehall CV pipeline — entity-first game-film extraction: primitive store + perception stages. Runs on spark (DGX Spark GB10, aarch64); NOT part of the k8s app workspace."
+description = "Entity-first basketball game-film pipeline: primitive store, perception stages, state estimation and evaluation."
 requires-python = ">=3.12"
 dependencies = [
     "numpy>=1.26",
@@ -14,15 +14,22 @@ dependencies = [
 
 [project.optional-dependencies]
 # GPU/perception deps are provided-or-installed inside the NGC PyTorch
-# container on spark (torch ships with the image; rfdetr reuses it).
+# container (torch ships with the image; rfdetr reuses it).
 gpu = [
     "rfdetr>=1.1",
     "supervision>=0.25",
     "segmentation-models-pytorch>=0.3.4",
 ]
 
+# Model backends for the possession harness (harness/adjudicators.py).
+harness = [
+    "anthropic>=0.40",
+    "typesafe-sdk>=0.7",
+]
+
 [dependency-groups]
-dev = ["pytest>=8.3"]
+# typesafe-sdk is here so the suite exercises the real client (mocked transport).
+dev = ["pytest>=8.3", "typesafe-sdk>=0.7"]
 
 [build-system]
 requires = ["hatchling"]
