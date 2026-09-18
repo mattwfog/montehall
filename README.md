@@ -1,5 +1,7 @@
 # montehall
 
+[![tests](https://github.com/mattwfog/montehall/actions/workflows/tests.yml/badge.svg)](https://github.com/mattwfog/montehall/actions/workflows/tests.yml)
+
 Computer vision for team sports, built around one idea: **vision is a sensor, not
 the answer**. Detectors, trackers, OCR and calibration produce observations; a
 separate layer reconstructs game state from them; learned models reason over that
@@ -31,6 +33,30 @@ sports.
 - **Permissive licensing by default.** Components are chosen for MIT, Apache or
   BSD terms. Exceptions are optional and listed in [`NOTICES.md`](NOTICES.md).
 - **Resumable stages.** Long runs write incrementally and skip completed work.
+
+## Models as likelihood channels
+
+The reasoning layer follows the same rule as perception: a model is a swappable
+channel, and its confidence has to be measured before it drives a decision. The
+basketball possession harness ([`harness/adjudicators.py`](basketball/montehall_cv/harness/adjudicators.py))
+ships two backends behind one interface:
+
+- `haiku` — one generative call per possession; the model writes a JSON verdict and
+  reports its own confidence.
+- `jev` — [TypeSafe's](https://docs.typesafe.ai) System One model, which generates no
+  text. Code asks typed questions over the possession trace (how did it end, who
+  scored, does the last pass pass the FIBA assist test, does the trace contradict
+  itself) in a single request and composes the verdict from the returned
+  probabilities. Abstention is a threshold, and an uncertain scorer stays a team
+  stat instead of a guessed player.
+
+[`harness/calibration.py`](basketball/montehall_cv/harness/calibration.py) scores any
+backend's confidence (expected calibration error, Brier score, reliability bins,
+precision-at-coverage), and `python -m montehall_cv.harness.compare` runs backends
+side by side on the same traces against truth no model produced. The backends and
+the scoring are tested, including a round trip through the real TypeSafe client
+with the HTTP transport mocked. A scored comparison on real games is not in the
+repository yet.
 
 ## Running the tests
 

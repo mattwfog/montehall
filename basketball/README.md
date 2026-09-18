@@ -49,7 +49,8 @@ uv sync && uv run pytest
 - `montehall_cv/brain/` — token vocabulary and tokenizer, simulated state traces, announcer name-call
   mining, and the recurrent state estimators (events, ball state, per-track identity slots) with their evals
 - `montehall_cv/eval/` — score-bug clock OCR, play-by-play alignment to video time, truth files, sealed holdouts
-- `montehall_cv/harness/` — LLM possession adjudication over symbolic possession traces
+- `montehall_cv/harness/` — possession adjudication over symbolic possession traces, with swappable
+  model backends (`haiku`, `jev`), calibration scoring and a side-by-side comparison
 - `montehall_cv/training/` — dataset builders, broadcast label mining, synthetic jersey data, and the
   detector, OCR and ReID training scripts
 - `montehall_cv/runner/` — job runner and results adapter
@@ -58,4 +59,4 @@ uv sync && uv run pytest
 - `docs/` — start with [`cv-state-estimation-paper.md`](docs/cv-state-estimation-paper.md); the
   [thesis](docs/cv-brain-thesis.md), [token contract](docs/cv-brain-token-contract.md) and
   [identity design](docs/cv-identity-design.md) are the working design record
-- `tests/` — 273 tests, no GPU needed
+- `tests/` — about 300 tests, no GPU needed
