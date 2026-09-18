@@ -41,8 +41,8 @@ channel, and its confidence has to be measured before it drives a decision. The
 basketball possession harness ([`harness/adjudicators.py`](basketball/montehall_cv/harness/adjudicators.py))
 ships two backends behind one interface:
 
-- `haiku` — one generative call per possession; the model writes a JSON verdict and
-  reports its own confidence.
+- `generative` — one call to a generative LLM per possession; the model writes a JSON
+  verdict and reports its own confidence. The model is configurable.
 - `jev` — [TypeSafe's](https://docs.typesafe.ai) System One model, which generates no
   text. Code asks typed questions over the possession trace (how did it end, who
   scored, does the last pass pass the FIBA assist test, does the trace contradict
@@ -94,7 +94,7 @@ anchor will move this number and a smarter reader of the same evidence will not.
 model's raw confidence should not drive abstention without recalibration against truth.
 Limits: simulated possessions and stated noise, not real footage; the generative
 backend has not been scored on this set (`python -m montehall_cv.harness.sim_eval
---backends haiku jev` runs it).
+--backends generative jev` runs it).
 
 ## Running the tests
 

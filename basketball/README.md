@@ -50,7 +50,7 @@ uv sync && uv run pytest
   mining, and the recurrent state estimators (events, ball state, per-track identity slots) with their evals
 - `montehall_cv/eval/` — score-bug clock OCR, play-by-play alignment to video time, truth files, sealed holdouts
 - `montehall_cv/harness/` — possession adjudication over symbolic possession traces, with swappable
-  model backends (`haiku`, `jev`), calibration scoring and a side-by-side comparison
+  model backends (`generative`, `jev`), calibration scoring and a side-by-side comparison
 - `montehall_cv/training/` — dataset builders, broadcast label mining, synthetic jersey data, and the
   detector, OCR and ReID training scripts
 - `montehall_cv/runner/` — job runner and results adapter

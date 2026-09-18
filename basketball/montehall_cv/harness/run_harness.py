@@ -5,7 +5,7 @@ applies the NCAA/FIBA statistician conventions to the symbolic trace —
 outcome classification, assist judgment via the FIBA mechanical test, and
 anomaly flags for the escalation tier. Every verdict persists with its
 cited rule as Evidence. The model behind the call is a swappable backend
-(harness/adjudicators.py): `haiku` writes a JSON verdict, `jev` answers typed
+(harness/adjudicators.py): `generative` writes a JSON verdict, `jev` answers typed
 questions with probabilities.
 
 Output: <out>/<job_id>/possession_verdicts/
@@ -42,7 +42,7 @@ VERDICTS_SCHEMA = pa.schema(
 )
 
 
-def run(out_root: Path, job_id: str, backend: str = "haiku") -> dict:
+def run(out_root: Path, job_id: str, backend: str = "generative") -> dict:
     job_dir = out_root / job_id
     if stage_complete(job_dir / "possession_verdicts"):
         return {"job_id": job_id, "skipped": True, "reason": "stage already complete"}
@@ -95,7 +95,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--job-id", required=True)
-    parser.add_argument("--backend", choices=sorted(BACKENDS), default="haiku")
+    parser.add_argument("--backend", choices=sorted(BACKENDS), default="generative")
     args = parser.parse_args()
     print(json.dumps(run(args.out, args.job_id, backend=args.backend), indent=2))
 

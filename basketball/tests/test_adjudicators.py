@@ -152,7 +152,7 @@ def test_jev_adjudicator_sends_one_request_and_caches(tmp_path):
     assert set(stub.last[1]) == {"outcome", "anomaly", "scorer", "assist"}
 
 
-class _HaikuStub:
+class _GenerativeStub:
     def __init__(self, text):
         self.text = text
         self.messages = self
@@ -161,14 +161,14 @@ class _HaikuStub:
         return SimpleNamespace(content=[SimpleNamespace(text=self.text)])
 
 
-def test_haiku_adjudicator_parses_json_verdict():
+def test_generative_adjudicator_parses_json_verdict():
     body = {"outcome": "turnover", "scorer_entity": None, "assist_entity": None, "confidence": 0.7}
-    verdict = adj.HaikuAdjudicator(client=_HaikuStub("ok: " + json.dumps(body))).adjudicate(_trace())
+    verdict = adj.GenerativeAdjudicator(client=_GenerativeStub("ok: " + json.dumps(body))).adjudicate(_trace())
     assert verdict == body
 
 
-def test_haiku_adjudicator_returns_empty_on_unparseable_text():
-    assert adj.HaikuAdjudicator(client=_HaikuStub("no json here")).adjudicate(_trace()) == {}
+def test_generative_adjudicator_returns_empty_on_unparseable_text():
+    assert adj.GenerativeAdjudicator(client=_GenerativeStub("no json here")).adjudicate(_trace()) == {}
 
 
 def test_unknown_backend_is_refused():

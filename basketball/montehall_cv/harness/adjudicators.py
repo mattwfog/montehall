@@ -3,8 +3,9 @@
 The harness treats the adjudicator as a swappable likelihood channel, like every
 other sensor in the pipeline. Two backends ship:
 
-- ``haiku``: one generative call per possession; the model writes a JSON verdict
-  and reports its own confidence.
+- ``generative``: one call to a generative LLM per possession; the model writes
+  a JSON verdict and reports its own confidence. MONTEHALL_LLM_MODEL names the
+  model; it is served by the Anthropic SDK or by OpenRouter, whichever key is set.
 - ``jev``: TypeSafe's System One model. It generates no text. Code asks narrow
   typed questions over the same trace and reads back probabilities, so the
   verdict's confidence is a distribution the scorer can check for calibration,
@@ -26,10 +27,9 @@ from montehall_cv.store.vlm_cache import VlmCache, content_key
 
 OUTCOMES = ("made_fg", "missed_fg_dreb", "missed_fg_oreb", "turnover", "unclear")
 
-HAIKU_MODEL = "claude-haiku-4-5-20251001"
 JEV_MODEL = "jev-latest"
 
-HAIKU_SYSTEM = """You are a basketball statistician applying official scoring conventions to \
+GENERATIVE_SYSTEM = """You are a basketball statistician applying official scoring conventions to \
 possession traces from a computer-vision pipeline. Rules you enforce:
 
 - OUTCOME per FIBA possession definition: a possession ends by made FG, defensive \
@@ -60,12 +60,11 @@ class Adjudicator(Protocol):
 
 
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
-OPENROUTER_HAIKU = "anthropic/claude-haiku-4.5"
 OPENROUTER_DEFAULT = "deepseek/deepseek-v4-flash-0731:free"
 
 
 class _OpenRouterMessages:
-    """The slice of the Anthropic client the haiku backend uses, served by
+    """The slice of the Anthropic client the generative backend uses, served by
     OpenRouter's chat-completions endpoint. Standard library only."""
 
     def __init__(self, api_key: str) -> None:
@@ -115,7 +114,7 @@ class _GenerativeAdjudicator:
 
     def adjudicate(self, trace: dict, cache: VlmCache | None = None) -> dict:
         payload = trace_json(trace)
-        key = content_key(self.model, HAIKU_SYSTEM, payload)
+        key = content_key(self.model, GENERATIVE_SYSTEM, payload)
         if cache is not None:
             hit = cache.get(key)
             if hit is not None:
@@ -123,7 +122,7 @@ class _GenerativeAdjudicator:
         response = self._client.messages.create(
             model=self.model,
             max_tokens=self.max_tokens,
-            system=HAIKU_SYSTEM,
+            system=GENERATIVE_SYSTEM,
             messages=[{"role": "user", "content": payload}],
         )
         text = next((b.text for b in response.content if hasattr(b, "text")), "")
@@ -141,37 +140,29 @@ class _GenerativeAdjudicator:
         return verdict
 
 
-class HaikuAdjudicator(_GenerativeAdjudicator):
-    name = "haiku"
-    model = HAIKU_MODEL
+class GenerativeAdjudicator(_GenerativeAdjudicator):
+    """MONTEHALL_LLM_MODEL picks the model. With ANTHROPIC_API_KEY it is an
+    Anthropic model id and is required; with OPENROUTER_API_KEY it is an
+    OpenRouter model slug and defaults to a free one."""
 
-    def __init__(self, client: Any | None = None) -> None:
+    name = "generative"
+    max_tokens = 2000  # room for models that reason before they answer
+
+    def __init__(self, client: Any | None = None, model: str | None = None) -> None:
+        model = model or os.environ.get("MONTEHALL_LLM_MODEL")
         if client is None:
             if os.environ.get("ANTHROPIC_API_KEY"):
                 import anthropic
 
+                if not model:
+                    raise RuntimeError("set MONTEHALL_LLM_MODEL to an Anthropic model id")
                 client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
             elif os.environ.get("OPENROUTER_API_KEY"):
                 client = _OpenRouterMessages(os.environ["OPENROUTER_API_KEY"])
-                self.model = OPENROUTER_HAIKU
+                model = model or OPENROUTER_DEFAULT
             else:
                 raise RuntimeError("set ANTHROPIC_API_KEY or OPENROUTER_API_KEY")
-        super().__init__(client)
-
-
-class OpenRouterAdjudicator(_GenerativeAdjudicator):
-    """Any OpenRouter chat model as the generative backend, same prompt as haiku.
-    MONTEHALL_OPENROUTER_MODEL picks the model."""
-
-    name = "openrouter"
-    max_tokens = 2000  # room for models that reason before they answer
-
-    def __init__(self, client: Any | None = None, model: str | None = None) -> None:
-        self.model = model or os.environ.get("MONTEHALL_OPENROUTER_MODEL", OPENROUTER_DEFAULT)
-        if client is None:
-            if not os.environ.get("OPENROUTER_API_KEY"):
-                raise RuntimeError("OPENROUTER_API_KEY not set")
-            client = _OpenRouterMessages(os.environ["OPENROUTER_API_KEY"])
+        self.model = model or "unspecified"
         super().__init__(client)
 
 
@@ -391,7 +382,7 @@ def _answer_dict(answer: Any) -> dict:
     return answer.model_dump() if hasattr(answer, "model_dump") else dict(answer)
 
 
-BACKENDS = {"haiku": HaikuAdjudicator, "jev": JevAdjudicator, "openrouter": OpenRouterAdjudicator}
+BACKENDS = {"generative": GenerativeAdjudicator, "jev": JevAdjudicator}
 
 
 def make_adjudicator(name: str) -> Adjudicator:

@@ -40,7 +40,7 @@ from montehall_cv.roster import normalize_number, roster_entry, roster_number_se
 from montehall_cv.store.artifacts import ArtifactWriter, read_stage, stage_complete
 from montehall_cv.store.vlm_cache import VlmCache, content_key
 
-MODEL = "claude-haiku-4-5-20251001"
+MODEL = os.environ.get("MONTEHALL_CONTACT_SHEET_MODEL", "claude-sonnet-5")
 CROPS_PER_SHEET = 12
 CELL_PX = 128
 MIN_ACCEPT_CONF = 0.6

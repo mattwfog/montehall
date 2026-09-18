@@ -1,7 +1,7 @@
 """Score adjudicator backends on simulated possessions with exact truth.
 
     python -m montehall_cv.harness.sim_eval --possessions 300 --seed 7 \
-        --backends haiku jev --report results/adjudicators-sim.json
+        --backends generative jev --report results/adjudicators-sim.json
 
 See harness/sim_possessions.py for what is simulated and what the noise is.
 Verdicts are cached under --cache, so an interrupted run resumes for free.

@@ -193,7 +193,7 @@ each answer permanently teaching the system that team.
 | Entity-level attribution (shooter, rebounds) | **EXISTS** — `box_score` rows carry `entity_id`; `shooter_attributed` counts entities |
 | Late roster binding (posterior × roster, margin + ambiguity guard) | **EXISTS** — removal-only; unbound collapses to team line |
 | **Entity rows first-class in the box score** (unbound = "awaiting label", never folded away) | **NEW** — keying change in `run_boxscore` + app transformer |
-| **Identity adjudicator over the full dossier** (reads an entity's whole evidence trail, pronounces identity + confidence; revisable) | **NEW** — binding today is deterministic rules; the possession harness (haiku) is the pattern, pointed at identity. Natural evidence format = the VLM contact-sheet (tiled best-N legible crops + roster context) |
+| **Identity adjudicator over the full dossier** (reads an entity's whole evidence trail, pronounces identity + confidence; revisable) | **NEW** — binding today is deterministic rules; the possession harness is the pattern, pointed at identity. Natural evidence format = the VLM contact-sheet (tiled best-N legible crops + roster context) |
 | **Coach-in-the-loop binding — Waze-style in-video confirm/deny** (video plays, box appears, "Is this Marcus (#24)?" — confirm / not him / not sure) | **NEW** — per-frame boxes exist in detections artifacts; play payloads carry ≤4Hz trajectories; gap = overlay data delivery to the SPA + prompt component + identity-vote API. Hudl-style "identify unknowns" list view as the non-playback fallback |
 | **Cross-game dossier persistence** (per-team: coach answers + ReID anchors; confirmed player auto-binds next upload) | **NEW** — today every job is independent. Research phase flagged identity posteriors/evidence trails as no-prior-art territory |
 | Flywheel: every answer = (a) immediate stat label, (b) dossier/ReID anchor, (c) verified training crop | **NEW** — automates what the roster harvester hand-cranks (43 verified crops to date) |
@@ -236,7 +236,7 @@ the vote→re-key wiring must fail.
 
 - **0.3 result:** contact-sheet VLM reads on the UConn clip = **264
   accepted / 253 roster-legal of 313 tracklets vs 19-tracklet per-frame
-  baseline** (~$0.60 of haiku). Aggregated-view reading wins decisively.
+  baseline** (~$0.60 of model calls). Aggregated-view reading wins decisively.
 - **C1 = suggestion-only** (principle 9): contact reads surface as
   `suggested_number` pre-fill on unnamed rows; they never name a row and
   never enter roster binding — posterior fusion into `run_jersey` waits

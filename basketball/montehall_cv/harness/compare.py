@@ -10,7 +10,7 @@ labels, or outcomes derived from aligned play-by-play).
 
 Usage:
     python -m montehall_cv.harness.compare --out /data/out --job-id <id> \
-        --truth truth_outcomes.json --backends haiku jev --report compare.json
+        --truth truth_outcomes.json --backends generative jev --report compare.json
 """
 
 from __future__ import annotations
